@@ -9,7 +9,7 @@ const CollapsibleItem = ({ title, children, isOpen, onToggle }) => {
         {title}
       </Button>
       {isOpen && (
-      <div className="mt-2 p-4 border border-gray-200 rounded w-full">
+      <div className="mt-2 p-4  rounded w-full">
       {children}
     </div>
       

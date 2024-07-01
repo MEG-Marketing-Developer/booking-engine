@@ -8,7 +8,11 @@ import umzugPauschal from "../public/images/umzugPauschal.png";
 import Disposal from "../public/images/Disposal.png";
 import CollapseIHeader from "./components/CollapseIHeader";
 import CollapsibleItem from "./components/CollapsibleItem";
+import ResidentialCleaning from "./components/ResidentialCleaning";
 const App = () => {
+
+ 
+
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (index) => {
@@ -66,8 +70,8 @@ const App = () => {
                 />
               </div>
               {openIndex !== null && (
-                <div className="mt-2 p-4 border border-gray-200 rounded w-full">
-                  {openIndex === 0 && <p>This is the content for Item 1.</p>}
+                <div className="mt-2 p-4 border border-gray-200 rounded w-full text-xlB">
+                  {openIndex === 0 && <ResidentialCleaning />}
                   {openIndex === 1 && <p>This is the content for Item 2.</p>}
                   {openIndex === 2 && <p>This is the content for Item 3.</p>}
                 </div>

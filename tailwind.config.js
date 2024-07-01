@@ -17,6 +17,12 @@ module.exports = {
       },
     },
     extend: {
+      flex: {
+        '2': '2 2 0%'
+      },
+      backgroundImage: {
+        'custom-bg': "url('../public/images/mammuth-main-bg.png')",
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

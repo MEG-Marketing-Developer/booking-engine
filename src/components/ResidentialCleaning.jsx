@@ -3,29 +3,10 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-import "./ButtonCarousel.css";
-import { cn } from "@/lib/utils";
-import Counter from "./Counter";
-// import App from "@/App";
-
-function ResidentialCleaning() {
-  const [count, setCount] = useState(2);
-  const minValue = 2;
-
-  const decrement = () => {
-    if (count > minValue) {
-      setCount(count - 1);
-    }
-  };
-
-  const increment = () => {
-    setCount(count + 1);
-  };
+function ResidentialCleaning({onDataSelected}) {
+  
 
   const [activeIndex, setActiveIndex] = useState(null);
   const items = [
@@ -45,7 +26,8 @@ function ResidentialCleaning() {
     { id: 14, value: "6  Times a Week" },
   ];
   const handleClick = (index) => {
-    setActiveIndex(index);
+    setActiveIndex(index); 
+    onDataSelected(items[index].value) 
   };
 
   return (
@@ -70,47 +52,7 @@ function ResidentialCleaning() {
           ))}
         </CarouselContent>
       </Carousel>
-      <div className="w-full text-left mt-10">
-        <h1 className="text-xl text-left my-3 text-[#123553] font-bold">
-          How Many Crew?
-        </h1>
-        <Tabs defaultValue="one" className={cn("relative mt-6 w-full")}>
-          <TabsList>
-            <TabsTrigger
-              value="one"
-              className={cn(
-                "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
-              )}
-            >
-              One
-            </TabsTrigger>
-            <TabsTrigger
-              value="two"
-              className={cn(
-                "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
-              )}
-            >
-              Two
-            </TabsTrigger>
-            <TabsTrigger
-              value="three"
-              className={cn(
-                "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
-              )}
-            >
-              Three
-            </TabsTrigger>
-            <TabsTrigger
-              value="four"
-              className={cn(
-                "tab-title  data-[state=active]:text-white data-[state=active]:bg-[#123553]"
-              )}
-            >
-              Four
-            </TabsTrigger>
-          </TabsList>
-        </Tabs>
-      </div>
+        
     
     </>
   );

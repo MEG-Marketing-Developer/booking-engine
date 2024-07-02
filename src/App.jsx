@@ -8,8 +8,21 @@ import umzugPauschal from "../public/images/umzugPauschal.png";
 import Disposal from "../public/images/Disposal.png";
 import ResidentialCleaning from "./components/ResidentialCleaning";
 import Counter from "./components/Counter";
+import TabsContent from "./components/TabsContent";
 
 const App = () => {
+  const [selectedTab, setSelectedTab] = useState('1');
+  const [selectedData, setSelectedData] = useState(null);
+
+
+  const hundleDataSelected = (newData) => {
+    setSelectedData(newData);
+  };
+  
+  const handleTabChange = (newTab) => {
+    setSelectedTab(newTab);
+  };
+
   const [selectedContent, setSelectedContent] = useState({
     title: "",
     image: "",
@@ -78,7 +91,8 @@ const App = () => {
                   {selectedContent.title}
                 </h3>
               </div>
-              <ResidentialCleaning />
+              <ResidentialCleaning onDataSelected={hundleDataSelected} />
+              <TabsContent onTabChange={handleTabChange}  />
               <h1 className="text-2xl text-left mt-5 text-[#123553] font-bold">
         Hours
       </h1>
@@ -88,11 +102,21 @@ const App = () => {
       </div>
             </div>
             <div className="flex-1 p-10  rounded-3xl bg-[#E7F3FC]">
-              <div className="text-left rounded-lg  flex flex-col w-full items-start justify-around">
-                <h3 className="text-xl font-bold text-[#123553]">
+              <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
+              <div>Service Selected</div>
+              <div className="flex flex-row items-center">
+              <img
+                  src={selectedContent.image}
+                  alt={selectedContent.title}
+                  className="w-[40px] p-1 rounded-full bg-[#123553] "
+                />
+                <h3 className="text-xl font-bold text-[#123553] pl-4">
                   {selectedContent.title}
                 </h3>
-                <h2>Hours: {count}</h2>
+                </div>
+                <h2 className="text-xl font-bold">Hours:{count}</h2>
+                <div className="text-xl font-bold">Crew:{selectedTab}</div>
+                <div className="text-xl font-bold">booking frequency:{selectedData}</div>
               </div>
               <div>
               </div>

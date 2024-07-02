@@ -10,11 +10,15 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import "./ButtonCarousel.css";
 import { cn } from "@/lib/utils";
+import Counter from "./Counter";
+// import App from "@/App";
 
 function ResidentialCleaning() {
   const [count, setCount] = useState(2);
+  const minValue = 2;
+
   const decrement = () => {
-    if (count > 2) {
+    if (count > minValue) {
       setCount(count - 1);
     }
   };
@@ -46,62 +50,68 @@ function ResidentialCleaning() {
 
   return (
     <>
-    <h1 className="text-2xl text-left my-3 text-[#123553] font-bold">Select your booking frequency</h1>
-        <Carousel className="w-full">
-          <CarouselContent>
-            {items.map((item, index) => (
-              <CarouselItem className="basis-[40%]">
-                <li
-                  key={item.id}
-                  className={`list-item w-full text-xl rounded-lg ${
-                    index === activeIndex ? "active" : ""
-                  }`}
-                  onClick={() => handleClick(index)}
-                >
-                  {item.value}
-                </li>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        <div className="w-full text-left mt-10">
-          <h1 className="text-xl text-left my-3 text-[#123553] font-bold">How Many Crew?</h1>
-          <Tabs defaultValue="one" className={cn("relative mt-6 w-full")}>
-            <TabsList>
-              <TabsTrigger value="one" className={cn("tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]")}>One</TabsTrigger>
-              <TabsTrigger value="two"  className={cn("tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]")}>Two</TabsTrigger>
-              <TabsTrigger value="three"  className={cn("tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]")}>Three</TabsTrigger>
-              <TabsTrigger value="four"  className={cn("tab-title  data-[state=active]:text-white data-[state=active]:bg-[#123553]")}>Four</TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-        <h1 className="text-2xl text-left mt-5 text-[#123553] font-bold">Hours</h1>
-        <div className="flex flex-row space-x-3 items-center justify-start p-4 mt-0">
-          {/* <div>
-            <span>Hours</span>
-          </div> */}
-          <button
-            className="px-4 py-2 bg-[#123553] text-white rounded hover:bg-blue-700"
-            onClick={decrement}
-          >
-            -
-          </button>
-          <div className="text-2xl font-bold ">{count}</div>
-
-          <button
-            className="px-4 py-2 bg-[#123553] text-white rounded hover:bg-blue-700"
-            onClick={increment}
-          >
-            +
-          </button>
-          <div>
-            <spa>
-              CHF
-              <br />
-              30/hr
-            </spa>
-          </div>
-        </div>
+      <h1 className="text-2xl text-left my-3 text-[#123553] font-bold">
+        Select your booking frequency
+      </h1>
+      <Carousel className="w-full">
+        <CarouselContent>
+          {items.map((item, index) => (
+            <CarouselItem className="basis-[40%]">
+              <li
+                key={item.id}
+                className={`list-item w-full text-xl rounded-lg ${
+                  index === activeIndex ? "active" : ""
+                }`}
+                onClick={() => handleClick(index)}
+              >
+                {item.value}
+              </li>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
+      <div className="w-full text-left mt-10">
+        <h1 className="text-xl text-left my-3 text-[#123553] font-bold">
+          How Many Crew?
+        </h1>
+        <Tabs defaultValue="one" className={cn("relative mt-6 w-full")}>
+          <TabsList>
+            <TabsTrigger
+              value="one"
+              className={cn(
+                "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              )}
+            >
+              One
+            </TabsTrigger>
+            <TabsTrigger
+              value="two"
+              className={cn(
+                "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              )}
+            >
+              Two
+            </TabsTrigger>
+            <TabsTrigger
+              value="three"
+              className={cn(
+                "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              )}
+            >
+              Three
+            </TabsTrigger>
+            <TabsTrigger
+              value="four"
+              className={cn(
+                "tab-title  data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              )}
+            >
+              Four
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
+    
     </>
   );
 }

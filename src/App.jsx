@@ -7,24 +7,34 @@ import residentialCleaning from "../public/images/residentialcleaning.png";
 import umzugPauschal from "../public/images/umzugPauschal.png";
 import Disposal from "../public/images/Disposal.png";
 import ResidentialCleaning from "./components/ResidentialCleaning";
-
+import Counter from "./components/Counter";
 
 const App = () => {
-
   const [selectedContent, setSelectedContent] = useState({
-    title: '',
-    image: ''
+    title: "",
+    image: "",
   });
 
-   const items = [
-    { id: 1, title: 'Residential Cleaning', image: residentialCleaning},
-    { id: 2, title: 'Umzug Pauschal', image: umzugPauschal},
-    { id: 3, title: 'Disposal Entsorgung', image: Disposal}
+  const items = [
+    { id: 1, title: "Residential Cleaning", image: residentialCleaning },
+    { id: 2, title: "Umzug Pauschal", image: umzugPauschal },
+    { id: 3, title: "Disposal Entsorgung", image: Disposal },
   ];
 
   const handleItemClick = (item) => {
     setSelectedContent(item);
   };
+    const [count, setCount] = useState(2);
+  const decrement = () => {
+    if (count > 2) {
+      setCount(count - 1);
+    }
+  };
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
   return (
     <>
       <Header />
@@ -39,29 +49,53 @@ const App = () => {
           {/* booking section  */}
           <div className="flex flex-row w-full justify-between pt-10 space-x-6">
             <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC]">
-            <div className="flex justify-around mb-5">
-        {items.map((item) => (
-          <div
-          className="cursor-pointer justify-center items-center text-center flex flex-col "
-            key={item.id}
-            onClick={() => handleItemClick(item)}
-          
-          >
-            <img src={item.image} alt={item.title} className="w-[150px] p-5 rounded-lg bg-[#123553]" />
-            <h3 className="text-xl font-bold text-[#123553]">{item.title}</h3>
-          </div>
-        ))}
-      </div>
+              <div className="flex justify-around mb-5">
+                {items.map((item) => (
+                  <div
+                    className="cursor-pointer justify-center items-center text-center flex flex-col "
+                    key={item.id}
+                    onClick={() => handleItemClick(item)}
+                  >
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-[150px] p-5 rounded-lg bg-[#123553]"
+                    />
+                    <h3 className="text-xl font-bold text-[#123553]">
+                      {item.title}
+                    </h3>
+                  </div>
+                ))}
+              </div>
 
-      
-        <div className="text-center border-[1px] border-[#9E9D9D] rounded-lg p-5 flex flex-col w-full items-center justify-around">
-          <img src={selectedContent.image} alt={selectedContent.title} className="w-[100px]  rounded-lg bg-[#123553] " />
-          <h3 className="text-xl font-bold text-[#123553]">{selectedContent.title}</h3>     
-          </div>
-          <ResidentialCleaning />
+              <div className="text-center border-[1px] border-[#9E9D9D] rounded-lg p-5 flex flex-col w-full items-center justify-around">
+                <img
+                  src={selectedContent.image}
+                  alt={selectedContent.title}
+                  className="w-[100px]  rounded-lg bg-[#123553] "
+                />
+                <h3 className="text-xl font-bold text-[#123553]">
+                  {selectedContent.title}
+                </h3>
+              </div>
+              <ResidentialCleaning />
+              <h1 className="text-2xl text-left mt-5 text-[#123553] font-bold">
+        Hours
+      </h1>
+      <div className="flex flex-row space-x-3 items-center justify-start p-4 mt-0">
+      <Counter count={count} increment={increment} decrement={decrement} />
+
       </div>
-            <div className="flex-1 p-10">
-              
+            </div>
+            <div className="flex-1 p-10  rounded-3xl bg-[#E7F3FC]">
+              <div className="text-left rounded-lg  flex flex-col w-full items-start justify-around">
+                <h3 className="text-xl font-bold text-[#123553]">
+                  {selectedContent.title}
+                </h3>
+                <h2>Hours: {count}</h2>
+              </div>
+              <div>
+              </div>
             </div>
           </div>
         </div>

@@ -2,7 +2,8 @@
     list-style-type: none;
     padding: 10px;
     margin: 5px;
-    background-color: #f0f0f0;
+    background-color: transparent;
+    border: 1px solid #123553;
     cursor: pointer;
   }
   
@@ -10,4 +11,10 @@
     background-color: #123553;
     color: white;
   }
-  
+  .tab-title{
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    color: #123553 ;
+    width: fit-content !important;
+    padding: 10px !important;
+  }

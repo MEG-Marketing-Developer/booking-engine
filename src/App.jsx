@@ -6,17 +6,24 @@ import logoIcone from "../public/images/mammut-logo-icon.png";
 import residentialCleaning from "../public/images/residentialcleaning.png";
 import umzugPauschal from "../public/images/umzugPauschal.png";
 import Disposal from "../public/images/Disposal.png";
-import CollapseIHeader from "./components/CollapseIHeader";
-import CollapsibleItem from "./components/CollapsibleItem";
 import ResidentialCleaning from "./components/ResidentialCleaning";
+
+
 const App = () => {
 
- 
+  const [selectedContent, setSelectedContent] = useState({
+    title: '',
+    image: ''
+  });
 
-  const [openIndex, setOpenIndex] = useState(null);
+   const items = [
+    { id: 1, title: 'Residential Cleaning', image: residentialCleaning},
+    { id: 2, title: 'Umzug Pauschal', image: umzugPauschal},
+    { id: 3, title: 'Disposal Entsorgung', image: Disposal}
+  ];
 
-  const handleToggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+  const handleItemClick = (item) => {
+    setSelectedContent(item);
   };
   return (
     <>
@@ -32,51 +39,27 @@ const App = () => {
           {/* booking section  */}
           <div className="flex flex-row w-full justify-between pt-10 space-x-6">
             <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC]">
-              <div className="flex justify-center">
-                <CollapsibleItem
-                  key={0}
-                  title={
-                    <CollapseIHeader
-                      imageSrc={residentialCleaning}
-                      serviceTitle="Residential Cleaning"
-                    />
-                  }
-                  isOpen={openIndex === 0}
-                  onToggle={() => handleToggle(0)}
-                />
+            <div className="flex justify-around mb-5">
+        {items.map((item) => (
+          <div
+          className="cursor-pointer justify-center items-center text-center flex flex-col "
+            key={item.id}
+            onClick={() => handleItemClick(item)}
+          
+          >
+            <img src={item.image} alt={item.title} className="w-[150px] p-5 rounded-lg bg-[#123553]" />
+            <h3 className="text-xl font-bold text-[#123553]">{item.title}</h3>
+          </div>
+        ))}
+      </div>
 
-                <CollapsibleItem
-                  key={1}
-                  title={
-                    <CollapseIHeader
-                      imageSrc={umzugPauschal}
-                      serviceTitle="Umzug Pauschal"
-                    />
-                  }
-                  isOpen={openIndex === 1}
-                  onToggle={() => handleToggle(1)}
-                />
-
-                <CollapsibleItem
-                  key={2}
-                  title={
-                    <CollapseIHeader
-                      imageSrc={Disposal}
-                      serviceTitle="Disposal Entsorgung"
-                    />
-                  }
-                  isOpen={openIndex === 2}
-                  onToggle={() => handleToggle(2)}
-                />
-              </div>
-              {openIndex !== null && (
-                <div className="mt-2 p-4 border border-gray-200 rounded w-full text-base">
-                  {openIndex === 0 && <ResidentialCleaning />}
-                  {openIndex === 1 && <ResidentialCleaning />}
-                  {openIndex === 2 && <ResidentialCleaning />}
-                </div>
-              )}
-            </div>
+      
+        <div className="text-center border-[1px] border-[#9E9D9D] rounded-lg p-5 flex flex-col w-full items-center justify-around">
+          <img src={selectedContent.image} alt={selectedContent.title} className="w-[100px]  rounded-lg bg-[#123553] " />
+          <h3 className="text-xl font-bold text-[#123553]">{selectedContent.title}</h3>     
+          </div>
+          <ResidentialCleaning />
+      </div>
             <div className="flex-1 p-10">
               
             </div>

@@ -62,7 +62,7 @@ const App = () => {
                   title={
                     <CollapseIHeader
                       imageSrc={Disposal}
-                      serviceTitle="Disposal"
+                      serviceTitle="Umzug Pauschal"
                     />
                   }
                   isOpen={openIndex === 2}
@@ -72,8 +72,8 @@ const App = () => {
               {openIndex !== null && (
                 <div className="mt-2 p-4 border border-gray-200 rounded w-full text-base">
                   {openIndex === 0 && <ResidentialCleaning />}
-                  {openIndex === 1 && <p>This is the content for Item 2.</p>}
-                  {openIndex === 2 && <p>This is the content for Item 3.</p>}
+                  {openIndex === 1 && <ResidentialCleaning />}
+                  {openIndex === 2 && <ResidentialCleaning />}
                 </div>
               )}
             </div>

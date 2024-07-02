@@ -61,7 +61,7 @@ const App = () => {
           <h1 className="text-xl font-bold">Quick Booking</h1>
           {/* booking section  */}
           <div className="flex flex-row w-full justify-between pt-10 space-x-6">
-            <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC]">
+            <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
               <div className="flex justify-around mb-5">
                 {items.map((item) => (
                   <div
@@ -101,7 +101,7 @@ const App = () => {
 
       </div>
             </div>
-            <div className="flex-1 p-10  rounded-3xl bg-[#E7F3FC]">
+            <div className="flex-1 p-10  rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
               <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
               <div className="text-xl font-bold text-[#123553]">Service Selected</div>
               {selectedContent.title && (

@@ -62,7 +62,7 @@ const App = () => {
                   title={
                     <CollapseIHeader
                       imageSrc={Disposal}
-                      serviceTitle="Umzug Pauschal"
+                      serviceTitle="Disposal"
                     />
                   }
                   isOpen={openIndex === 2}

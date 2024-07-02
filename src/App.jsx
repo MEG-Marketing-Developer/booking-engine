@@ -31,7 +31,7 @@ const App = () => {
           <h1 className="text-xl font-bold">Quick Booking</h1>
           {/* booking section  */}
           <div className="flex flex-row w-full justify-between pt-10 space-x-6">
-            <div className=" w-full  mx-auto  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC]">
+            <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC]">
               <div className="flex justify-around">
                 <CollapsibleItem
                   key={0}
@@ -70,14 +70,16 @@ const App = () => {
                 />
               </div>
               {openIndex !== null && (
-                <div className="mt-2 p-4 border border-gray-200 rounded w-full text-xlB">
+                <div className="mt-2 p-4 border border-gray-200 rounded w-full text-xl">
                   {openIndex === 0 && <ResidentialCleaning />}
                   {openIndex === 1 && <p>This is the content for Item 2.</p>}
                   {openIndex === 2 && <p>This is the content for Item 3.</p>}
                 </div>
               )}
             </div>
-            <div className="flex-1 p-10"></div>
+            <div className="flex-1 p-10">
+              
+            </div>
           </div>
         </div>
       </main>

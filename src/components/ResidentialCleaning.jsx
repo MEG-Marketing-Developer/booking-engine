@@ -49,7 +49,7 @@ function ResidentialCleaning() {
         <Carousel className="w-full">
           <CarouselContent>
             {items.map((item, index) => (
-              <CarouselItem className="basis-[24%]">
+              <CarouselItem className="basis-1/3">
                 <li
                   key={item.id}
                   className={`list-item w-full rounded-lg ${

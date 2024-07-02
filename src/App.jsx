@@ -103,7 +103,9 @@ const App = () => {
             </div>
             <div className="flex-1 p-10  rounded-3xl bg-[#E7F3FC]">
               <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
-              <div>Service Selected</div>
+              <div className="text-xl font-bold text-[#123553]">Service Selected</div>
+              {selectedContent.title && (
+                <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
               <div className="flex flex-row items-center">
               <img
                   src={selectedContent.image}
@@ -114,10 +116,18 @@ const App = () => {
                   {selectedContent.title}
                 </h3>
                 </div>
-                <h2 className="text-xl font-bold">Hours:{count}</h2>
-                <div className="text-xl font-bold">Crew:{selectedTab}</div>
-                <div className="text-xl font-bold">booking frequency:{selectedData}</div>
-              </div>
+                <h2 className="text-xl font-bold text-[#123553]">Hours:{count}</h2>
+                <div className="text-xl font-bold text-[#123553]">Crew:{selectedTab}</div>
+                <div className="text-xl font-bold text-[#123553]">booking frequency:{selectedData}</div>
+              
+                </div>
+
+                
+               )}
+               
+                
+
+                </div>
               <div>
               </div>
             </div>

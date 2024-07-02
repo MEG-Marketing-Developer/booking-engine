@@ -70,7 +70,7 @@ const App = () => {
                 />
               </div>
               {openIndex !== null && (
-                <div className="mt-2 p-4 border border-gray-200 rounded w-full text-xl">
+                <div className="mt-2 p-4 border border-gray-200 rounded w-full text-base">
                   {openIndex === 0 && <ResidentialCleaning />}
                   {openIndex === 1 && <p>This is the content for Item 2.</p>}
                   {openIndex === 2 && <p>This is the content for Item 3.</p>}

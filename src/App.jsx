@@ -32,7 +32,7 @@ const App = () => {
           {/* booking section  */}
           <div className="flex flex-row w-full justify-between pt-10 space-x-6">
             <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC]">
-              <div className="flex justify-around">
+              <div className="flex justify-center">
                 <CollapsibleItem
                   key={0}
                   title={
@@ -62,7 +62,7 @@ const App = () => {
                   title={
                     <CollapseIHeader
                       imageSrc={Disposal}
-                      serviceTitle="Disposal"
+                      serviceTitle="Disposal Entsorgung"
                     />
                   }
                   isOpen={openIndex === 2}

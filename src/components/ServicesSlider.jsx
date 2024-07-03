@@ -33,7 +33,7 @@ function ServicesSlider({ onDataSelected }) {
 
   return (
     <>
-      <h1 className="text-2xl text-left my-3 text-[#123553] font-bold">
+      <h1 className="text-base sm:text-2xl text-left my-3 text-[#123553] font-bold">
         Select your booking frequency
       </h1>
       <Carousel className="w-full">
@@ -42,7 +42,7 @@ function ServicesSlider({ onDataSelected }) {
             <CarouselItem className="basis-[40%]">
               <li
                 key={item.id}
-                className={`list-item w-full text-xl rounded-lg ${
+                className={`web-list-item w-full text-base sm:text-xl rounded-lg ${
                   index === activeIndex ? "active" : ""
                 }`}
                 onClick={() => handleClick(index)}

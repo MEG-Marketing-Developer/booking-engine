@@ -10,7 +10,7 @@ function TabsContent({ onTabChange }) {
 
   return (
     <div className="w-full text-left mt-10">
-      <h1 className="text-2xl text-left my-3 text-[#123553] font-bold">
+      <h1 className="text-base sm:text-2xl text-left my-3 text-[#123553] font-bold">
         How Many Crew?
       </h1>
       <Tabs onValueChange={handleTabChange} defaultValue="1" className={cn("relative mt-6 w-full")}>

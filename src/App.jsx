@@ -56,15 +56,15 @@ const App = () => {
           <img src={logoIcone} alt="logo" />
         </div>
         {/* content section  */}
-        <div className="bg-white w-3/4 mx-auto mt-10 rounded-3xl h-auto p-10 flex flex-col items-start">
+        <div className="bg-white w-[90%] sm:w-3/4 mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 flex flex-col items-start">
           <h1 className="text-xl font-bold">Quick Booking</h1>
           {/* booking section  */}
-          <div className="flex flex-row w-full justify-between pt-10 space-x-6">
-            <div className="mx-auto w-2/3  flex-2 p-10 pt-16 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
+          <div className="flex flex-col sm:flex-row w-full justify-between pt-5 sm:pt-10 space-y-6 sm:space-y-0 sm:space-x-6">
+            <div className="mx-auto sm:w-2/3 w-full  flex-2 p-5 sm:p-10 sm:pt-16 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
               <div className="flex justify-around mb-5 relative">
                 {items.map((item) => (
                   <div 
-                    className="cursor-pointer justify-center items-center text-center flex flex-col"
+                    className="cursor-pointer justify-center items-center text-center flex flex-col pl-2"
                     key={item.id}
                     onClick={() => handleItemClick(item)}
                   >
@@ -72,7 +72,7 @@ const App = () => {
                       src={item.image}
                       alt={item.title}
                       className="w-[150px] p-5 rounded-lg bg-transparent border-[1px] border-[#fff] hover:scale-105 transition-transform" />
-                    <h3 className="text-xl mt-2 text-[#123553]">
+                    <h3 className="text-base sm:text-xl mt-2 text-[#123553]">
                       {item.title}
                     </h3>
                   </div>
@@ -80,16 +80,16 @@ const App = () => {
               </div>
                     
 
-              <div className="text-center border-[1px] border-[#9E9D9D] rounded-lg p-5 flex flex-col w-full items-center justify-around">
-                <h3 className="text-xl font-normal text-[#123553]">
+              <div className="text-center border-[1px] border-[#9E9D9D] rounded-lg p-2 sm:p-5 flex flex-col w-full items-center justify-around">
+                <h3 className="text-base sm:text-xl font-normal text-[#123553]">
                   {selectedContent.title}
                 </h3>
               </div>
               <ServicesSlider onDataSelected={hundleDataSelected} />
-              <div className="flex w-full justify-around items-center">
+              <div className="flex w-full justify-around items-center sm:flex-row flex-col">
                 <TabsContent onTabChange={handleTabChange} />
                 <div className="w-full text-left mt-10">
-                  <h1 className="text-2xl text-left mt-5 text-[#123553] font-bold">
+                  <h1 className="text-base sm:text-2xl text-left mt-5 text-[#123553] font-bold">
                     Hours
                   </h1>
                   <div className="flex flex-row space-x-3 items-center justify-start pl-0 p-4 mt-0">
@@ -110,37 +110,37 @@ const App = () => {
                 {selectedContent.title && (
                   <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
                     <div className="flex w-full justify-between"> 
-                    <h2 className="text-xl  text-[#123553]">
+                    <h2 className="text-base sm:text-xl  text-[#123553]">
                     Service 
                     </h2>                     
-                      <h3 className="text-xl  text-[#123553] pl-4">
+                      <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
                         {selectedContent.title}
                       </h3>                    
                     </div>
 
                     <div className="flex w-full justify-between"> 
-                    <h2 className="text-xl  text-[#123553]">
+                    <h2 className="text-base sm:text-xl  text-[#123553]">
                     Hours 
                     </h2>                     
-                      <h3 className="text-xl  text-[#123553] pl-4">
+                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
                       {count} hours
                       </h3>                    
                     </div>
                     
                     <div className="flex w-full justify-between"> 
-                    <h2 className="text-xl  text-[#123553]">
+                    <h2 className="text-base sm:text-xl  text-[#123553]">
                     Crew Workers 
                     </h2>                     
-                      <h3 className="text-xl  text-[#123553] pl-4">
+                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
                       {selectedTab} Crew
                       </h3>                    
                     </div>
                     
                     <div className="flex w-full justify-between"> 
-                    <h2 className="text-xl  text-[#123553]">
+                    <h2 className="text-base sm:text-xl  text-[#123553]">
                     booking frequency 
                     </h2>                     
-                      <h3 className="text-xl  text-[#123553] pl-4">
+                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
                       {selectedData}
                       </h3>                    
                     </div>

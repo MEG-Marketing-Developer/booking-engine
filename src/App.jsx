@@ -102,7 +102,7 @@ const App = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 p-10  rounded-3xl bg-[#E7F3FC] drop-shadow-lg h-[20%]">
+            <div className="flex-1 px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg h-[20%]">
               <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
                 <div className="text-xl font-bold text-[#123553]">
                 Booking Details

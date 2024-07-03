@@ -1,0 +1,13 @@
+.list-item {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px;
+    background-color: transparent;
+    border: 1px solid #123553;
+    cursor: pointer;
+  }
+
+  .list-item.active {
+    background-color: #123553;
+    color: white;
+  }

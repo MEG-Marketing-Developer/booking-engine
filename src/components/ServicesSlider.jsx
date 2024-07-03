@@ -3,12 +3,12 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
 } from "@/components/ui/carousel";
 import "./ButtonSilder.css";
 
-function ServicesSlider({onDataSelected}) {
-  
-
+function ServicesSlider({ onDataSelected }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const items = [
     { id: 1, value: "One Time" },
@@ -27,8 +27,8 @@ function ServicesSlider({onDataSelected}) {
     { id: 14, value: "6  Times a Week" },
   ];
   const handleClick = (index) => {
-    setActiveIndex(index); 
-    onDataSelected(items[index].value) 
+    setActiveIndex(index);
+    onDataSelected(items[index].value);
   };
 
   return (
@@ -52,9 +52,9 @@ function ServicesSlider({onDataSelected}) {
             </CarouselItem>
           ))}
         </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
       </Carousel>
-        
-    
     </>
   );
 }

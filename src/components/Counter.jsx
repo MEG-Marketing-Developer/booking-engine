@@ -10,7 +10,7 @@ function Counter({ count, increment, decrement }) {
       >
         -
       </button>
-      <div className="text-2xl font-bold ">{count}</div>
+      <div className="text-2xl font-bold bg-white  px-4 py-1 rounded">{count}</div>
 
       <button
         className="px-4 py-2 bg-[#123553] text-white rounded hover:bg-blue-700"
@@ -22,7 +22,8 @@ function Counter({ count, increment, decrement }) {
         <span>
           CHF
           <br />
-          30/hr
+          <strong>30/hr</strong>
+          
         </span>
       </div>
     </>

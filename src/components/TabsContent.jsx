@@ -10,7 +10,7 @@ function TabsContent({ onTabChange }) {
 
   return (
     <div className="w-full text-left mt-10">
-      <h1 className="text-xl text-left my-3 text-[#123553] font-bold">
+      <h1 className="text-2xl text-left my-3 text-[#123553] font-bold">
         How Many Crew?
       </h1>
       <Tabs onValueChange={handleTabChange} defaultValue="1" className={cn("relative mt-6 w-full")}>
@@ -18,7 +18,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="1"
             className={cn(
-              "font-bold text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "bg-white font-normal text-lg text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             One
@@ -26,7 +26,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="2"
             className={cn(
-              "font-bold text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "bg-white font-normal text-lg text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             Two
@@ -34,7 +34,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="3"
             className={cn(
-              "font-bold text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "bg-white font-normal text-lg text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             Three
@@ -42,7 +42,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="4"
             className={cn(
-              "font-bold text-[#123553] w-fit p-2  data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "bg-white font-normal text-lg text-[#123553] w-fit p-2  data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             Four

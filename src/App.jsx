@@ -6,7 +6,7 @@ import logoIcone from "../public/images/mammut-logo-icon.png";
 import residentialCleaning from "../public/images/residentialcleaning.png";
 import umzugPauschal from "../public/images/umzugPauschal.png";
 import Disposal from "../public/images/Disposal.png";
-import ResidentialCleaning from "./components/ResidentialCleaning";
+import ServicesSlider from "./components/ServicesSlider";
 import Counter from "./components/Counter";
 import TabsContent from "./components/TabsContent";
 
@@ -91,7 +91,7 @@ const App = () => {
                   {selectedContent.title}
                 </h3>
               </div>
-              <ResidentialCleaning onDataSelected={hundleDataSelected} />
+              <ServicesSlider onDataSelected={hundleDataSelected} />
               <TabsContent onTabChange={handleTabChange}  />
               <h1 className="text-2xl text-left mt-5 text-[#123553] font-bold">
         Hours

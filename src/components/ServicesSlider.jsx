@@ -5,7 +5,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-function ResidentialCleaning({onDataSelected}) {
+function ServicesSlider({onDataSelected}) {
   
 
   const [activeIndex, setActiveIndex] = useState(null);
@@ -58,4 +58,4 @@ function ResidentialCleaning({onDataSelected}) {
   );
 }
 
-export default ResidentialCleaning;
+export default ServicesSlider;

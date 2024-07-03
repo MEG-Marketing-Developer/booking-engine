@@ -1,6 +1,5 @@
 import React from "react";
 import { cn } from "@/lib/utils";
-import "./ButtonCarousel.css";
 import { Tabs,  TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 
@@ -19,7 +18,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="1"
             className={cn(
-              "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "font-bold text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             One
@@ -27,7 +26,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="2"
             className={cn(
-              "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "font-bold text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             Two
@@ -35,7 +34,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="3"
             className={cn(
-              "tab-title data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "font-bold text-[#123553] w-fit p-2 data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             Three
@@ -43,7 +42,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="4"
             className={cn(
-              "tab-title  data-[state=active]:text-white data-[state=active]:bg-[#123553]"
+              "font-bold text-[#123553] w-fit p-2  data-[state=active]:text-white data-[state=active]:bg-[#123553]"
             )}
           >
             Four

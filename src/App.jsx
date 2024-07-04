@@ -6,6 +6,8 @@ import logoIcone from "../public/images/mammut-logo-icon.png";
 import MultiStep from "react-multistep";
 import { ServiceStep } from "./ServiceStep";
 import { LocationStep } from "./LocationStep";
+import DateStep from "./DateStep";
+import ContactStep from "./ContactStep";
 
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("1");
@@ -16,7 +18,6 @@ const App = () => {
     image: "",
   });
 
-
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
   };
@@ -25,8 +26,6 @@ const App = () => {
     setSelectedTab(newTab);
   };
 
-
-  
   const handleItemClick = (item) => {
     setSelectedContent(item);
   };
@@ -34,20 +33,22 @@ const App = () => {
     setCount(newCount);
   };
 
-  const steps = [
-    {
-      name: "Services",
-      component: (
-        <ServiceStep
-          selectTab={hundelTabSummary}
-          serviceSlected={hundleDataSelected}
-          contentSelected={handleItemClick}
-          counter={hundleCounter}
-        />
-      ),
-    },
-    { name: "Address", component: <LocationStep /> },
-  ];
+  // const steps = [
+  //   {
+  //     name: "Services",
+  //     component: (
+  //       <ServiceStep
+  //         selectTab={hundelTabSummary}
+  //         serviceSlected={hundleDataSelected}
+  //         contentSelected={handleItemClick}
+  //         counter={hundleCounter}
+  //       />
+  //     ),
+  //   },
+  //   { name: "Address", component: <LocationStep /> },
+  //   { name: "Date", component: <DateStep /> },
+  //   { name: "Contact", component: <ContactStep /> },
+  // ];
 
   return (
     <>
@@ -63,7 +64,18 @@ const App = () => {
           {/* booking section  */}
           <div className="flex flex-col sm:flex-row  justify-between pt-5 sm:pt-10 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
             <div className="mx-auto sm:w-2/3 w-full  flex-2 p-5 sm:p-10 sm:pt-16 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
-              <MultiStep steps={steps} />
+              <MultiStep activeStep={0}>
+                <ServiceStep
+                  selectTab={hundelTabSummary}
+                  serviceSlected={hundleDataSelected}
+                  contentSelected={handleItemClick}
+                  counter={hundleCounter}
+                  title="Services"
+                />
+                <LocationStep title="Address" />
+                <DateStep title="Date and Time" />
+                <ContactStep title="Contact Information" />
+              </MultiStep>
             </div>
             <div className="flex-1 px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg h-[20%]">
               <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
@@ -71,44 +83,44 @@ const App = () => {
                   Booking Details
                 </div>
                 {selectedContent.title && (
-                <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
-                  <div className="flex w-full justify-between">
-                    <h2 className="text-base sm:text-xl  text-[#123553]">
-                      Service
-                    </h2>
-                    <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
-                      {selectedContent.title}
-                    </h3>
-                  </div>
+                  <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
+                    <div className="flex w-full justify-between">
+                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                        Service
+                      </h2>
+                      <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
+                        {selectedContent.title}
+                      </h3>
+                    </div>
 
-                  <div className="flex w-full justify-between">
-                    <h2 className="text-base sm:text-xl  text-[#123553]">
-                      Hours
-                    </h2>
-                    <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
-                      {count} hours
-                    </h3>
-                  </div>
+                    <div className="flex w-full justify-between">
+                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                        Hours
+                      </h2>
+                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
+                        {count} hours
+                      </h3>
+                    </div>
 
-                  <div className="flex w-full justify-between">
-                    <h2 className="text-base sm:text-xl  text-[#123553]">
-                      Crew Workers
-                    </h2>
-                    <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
-                      {selectedTab} Crew
-                    </h3>
-                  </div>
+                    <div className="flex w-full justify-between">
+                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                        Crew Workers
+                      </h2>
+                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
+                        {selectedTab} Crew
+                      </h3>
+                    </div>
 
-                  <div className="flex w-full justify-between">
-                    <h2 className="text-base sm:text-xl  text-[#123553]">
-                      booking frequency
-                    </h2>
-                    <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
-                      {selectedData}
-                    </h3>
+                    <div className="flex w-full justify-between">
+                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                        booking frequency
+                      </h2>
+                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
+                        {selectedData}
+                      </h3>
+                    </div>
                   </div>
-                </div>
-                 )} 
+                )}
               </div>
               <div></div>
             </div>

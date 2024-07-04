@@ -40,3 +40,6 @@
 .read-the-docs {
   color: #888;
 }
+#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div{
+  width: 100%;
+}

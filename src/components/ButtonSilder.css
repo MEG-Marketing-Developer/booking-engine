@@ -16,3 +16,15 @@
     background-color: #123553;
     color: white;
   }
+  .input-number {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    width: 20%;
+    text-align: center;
+  }
+  
+  .input-number::-webkit-inner-spin-button,
+  .input-number::-webkit-outer-spin-button {
+    -webkit-appearance: none; 
+    margin: 0; 
+  }

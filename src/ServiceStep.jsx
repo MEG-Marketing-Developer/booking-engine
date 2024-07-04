@@ -6,9 +6,15 @@ import ServicesSlider from "./components/ServicesSlider";
 import Counter from "./components/Counter";
 import TabsContent from "./components/TabsContent";
 
-export const ServiceStep = ({counter, selectTab, contentSelected, serviceSlected }) => {
+export const ServiceStep = ({counter, selectTab, contentSelected, serviceSlected }) => {   
   const [selectedTab, setSelectedTab] = useState("1");
   const [selectedData, setSelectedData] = useState(null);
+  const [count, setCount] = useState(2);
+  const [selectedContent, setSelectedContent] = useState({
+    title: "",
+    image: "",
+  });
+
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -20,10 +26,6 @@ export const ServiceStep = ({counter, selectTab, contentSelected, serviceSlected
     selectTab(newTab)
   };
 
-  const [selectedContent, setSelectedContent] = useState({
-    title: "",
-    image: "",
-  });
 
   const items = [
     { id: 1, title: "Residential Cleaning", image: residentialCleaning },
@@ -37,26 +39,32 @@ export const ServiceStep = ({counter, selectTab, contentSelected, serviceSlected
     
     
   };
-  const [count, setCount] = useState(2);
   const handleCounter = (e) => {
-    setCount(e.target.value);
-    counter(e);
-};
-const increment = () => {
+    let newCount = parseInt(e.target.value);
+    if (isNaN(newCount) || newCount < 2) {
+      newCount = 2;
+    } else if (newCount > 10) {
+      newCount = 10;
+    }
+    setCount(newCount);
+    counter(newCount);
+  };
+
+  const increment = () => {
     if (count < 10) {
-    setCount(parseInt(count) + 1);
-    counter(count);
+      const newCount = count + 1;
+      setCount(newCount);
+      counter(newCount);
     }
   };
 
   const decrement = () => {
     if (count > 2) {
-      setCount(parseInt(count) - 1);
-      counter(e);
+      const newCount = count - 1;
+      setCount(newCount);
+      counter(newCount);
     }
   };
-
-
 
   return (
     <>

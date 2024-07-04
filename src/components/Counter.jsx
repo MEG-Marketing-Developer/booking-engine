@@ -17,6 +17,12 @@ function Counter({ count, increment, decrement, inputChange }) {
         value={count}
         onChange={inputChange}
         min="2" max="10"
+        onKeyUp={(event) => {
+          if (!/[0-9]/.test(event.key)) {
+            event.preventDefault();
+          }
+        }}
+  
     
       />
       <button

@@ -10,6 +10,12 @@ import { LocationStep } from "./LocationStep";
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("1");
   const [selectedData, setSelectedData] = useState(null);
+  const [count, setCount] = useState(2);
+  const [selectedContent, setSelectedContent] = useState({
+    title: "",
+    image: "",
+  });
+
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -19,18 +25,13 @@ const App = () => {
     setSelectedTab(newTab);
   };
 
-  const [selectedContent, setSelectedContent] = useState({
-    title: "",
-    image: "",
-  });
 
   
   const handleItemClick = (item) => {
     setSelectedContent(item);
   };
-  const [count, setCount] = useState(2);
-  const hundleCounter = (e) => {
-    setCount(e.target.value);
+  const hundleCounter = (newCount) => {
+    setCount(newCount);
   };
 
   const steps = [

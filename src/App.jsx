@@ -17,6 +17,8 @@ const App = () => {
     title: "",
     image: "",
   });
+  const [address, setAddress] = useState('');
+
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -33,22 +35,9 @@ const App = () => {
     setCount(newCount);
   };
 
-  // const steps = [
-  //   {
-  //     name: "Services",
-  //     component: (
-  //       <ServiceStep
-  //         selectTab={hundelTabSummary}
-  //         serviceSlected={hundleDataSelected}
-  //         contentSelected={handleItemClick}
-  //         counter={hundleCounter}
-  //       />
-  //     ),
-  //   },
-  //   { name: "Address", component: <LocationStep /> },
-  //   { name: "Date", component: <DateStep /> },
-  //   { name: "Contact", component: <ContactStep /> },
-  // ];
+  const hundleAddress = (newAddress) => {
+    setAddress(newAddress);
+  }
 
   return (
     <>
@@ -72,13 +61,13 @@ const App = () => {
                   counter={hundleCounter}
                   title="Services"
                 />
-                <LocationStep title="Address" />
-                <DateStep title="Date and Time" />
-                <ContactStep title="Contact Information" />
+                <LocationStep addressSelected={hundleAddress} title="Address" />
+                <DateStep title="Date" />
+                <ContactStep title="Contact" />
               </MultiStep>
             </div>
-            <div className="flex-1 px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg h-[20%]">
-              <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
+            <div className="flex-1 space-y-8  h-[20%]">
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
                 <div className="text-xl font-bold text-[#123553]">
                   Booking Details
                 </div>
@@ -122,7 +111,29 @@ const App = () => {
                   </div>
                 )}
               </div>
-              <div></div>
+              
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg ">
+              <div className="text-xl font-bold text-[#123553]">
+                  Address
+                </div>  
+                <div className="text-base sm:text-xl  text-[#123553]">
+                   {address}
+                </div>
+              </div>
+
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg ">
+              <div className="text-xl font-bold text-[#123553]">
+                  Date and Time
+                </div>            
+              </div>
+
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg ">
+              <div className="text-xl font-bold text-[#123553]">
+                  Contact Information
+                </div>            
+              </div>
+
+
             </div>
           </div>
         </div>

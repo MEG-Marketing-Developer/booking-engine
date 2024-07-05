@@ -5,129 +5,62 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
 #root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div{
   width: 100%;
 }
-ol.progtrckr {
-  margin: 0;
-  padding-bottom: 2.2rem;
-  list-style-type: none;
+
+#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div > div.mx-auto.sm\:w-2\/3.w-full.flex-2.p-5.sm\:p-10.sm\:pt-16.rounded-3xl.bg-\[\#E7F3FC\].drop-shadow-lg > div > div:nth-child(7) > div{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
-ol.progtrckr li {
-  display: inline-block;
-  text-align: center;
-  line-height: 4.5rem;
-  padding: 0 0.7rem;
-  cursor: pointer;
+#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div > div.mx-auto.sm\:w-2\/3.w-full.flex-2.p-5.sm\:p-10.sm\:pt-16.rounded-3xl.bg-\[\#E7F3FC\].drop-shadow-lg > div > div:nth-child(7) > div > button:nth-child(1),
+#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div > div.mx-auto.sm\:w-2\/3.w-full.flex-2.p-5.sm\:p-10.sm\:pt-16.rounded-3xl.bg-\[\#E7F3FC\].drop-shadow-lg > div > div:nth-child(7) > div > button:nth-child(2){
+  background-color: #123553;
+  color: #fff;
+  padding-right: 5%;
+  padding-left: 5%;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  border-radius: 10px;
+  margin-top: 3%;
+  display: block;
 }
-ol.progtrckr li span {
-  padding: 0 1.5rem;
+.go2150698616 span{
+  color: #123553;
+  font-size: 25px;
+
 }
-@media (max-width: 650px) {
-  .progtrckr li span {
-    display: none;
+.go2150698616{
+min-width: 13rem !important;
+}
+@media only screen and (max-width: 750px) {
+  .go2150698616 span{   
+    font-size: 1rem;
+  }
+  .go2150698616{
+    padding: 10px 0.7rem !important;
+    min-width: 4rem !important;
+  }
+  .go2150698616:before{
+    bottom: -4.99rem !important;
   }
 }
-.progtrckr em {
-  display: none;
-  font-weight: 700;
-  padding-left: 1rem;
-}
-@media (max-width: 650px) {
-  .progtrckr em {
-    display: inline;
-  }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
 }
 
-ol.progtrckr li.progtrckr-todo {
-  color: silver;
-  border-bottom: 4px solid silver;
+.error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  color: red;
+  font-size: 1.5em;
 }
-ol.progtrckr li.progtrckr-doing {
-  color: black;
-  border-bottom: 4px solid #33c3f0;
-}
-ol.progtrckr li.progtrckr-done {
-  color: black;
-  border-bottom: 4px solid #33c3f0;
-}
-ol.progtrckr li:after {
-  content: "\00a0\00a0";
-}
-ol.progtrckr li:before {
-  position: relative;
-  bottom: -3.7rem;
-  float: left;
-  left: 50%;
-}
-ol.progtrckr li.progtrckr-todo:before {
-  content: "\039F";
-  color: silver;
-  background-color: white;
-  width: 1.2em;
-  line-height: 1.4em;
-}
-ol.progtrckr li.progtrckr-todo:hover:before {
-  color: #0fa0ce;
-}
-
-ol.progtrckr li.progtrckr-doing:before {
-  content: "\2022";
-  color: white;
-  background-color: #33c3f0;
-  width: 1.2em;
-  line-height: 1.2em;
-  border-radius: 1.2em;
-}
-ol.progtrckr li.progtrckr-doing:hover:before {
-  color: #0fa0ce;
-}
-
-ol.progtrckr li.progtrckr-done:before {
-  content: "\2713";
-  color: white;
-  background-color: #33c3f0;
-  width: 1.2em;
-  line-height: 1.2em;
-  border-radius: 1.2em;
-}
-ol.progtrckr li.progtrckr-done:hover:before {
-  color: #0fa0ce;
-}
-
 

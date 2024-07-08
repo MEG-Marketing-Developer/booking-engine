@@ -39,7 +39,7 @@ function ServicesSlider({ onDataSelected }) {
       <Carousel className="w-full">
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem className="basis-[40%]">
+            <CarouselItem className="basis-[40%]" key={item.id}>
               <li
                 key={item.id}
                 className={`web-list-item w-full text-base sm:text-xl rounded-lg ${

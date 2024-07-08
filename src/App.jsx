@@ -8,6 +8,8 @@ import { ServiceStep } from "./ServiceStep";
 import { LocationStep } from "./LocationStep";
 import DateStep from "./DateStep";
 import ContactStep from "./ContactStep";
+import { Stepper } from 'react-form-stepper';
+
 
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("1");
@@ -38,6 +40,12 @@ const App = () => {
   const hundleAddress = (newAddress) => {
     setAddress(newAddress);
   }
+const prevButton = () => {
+  title="Previous";
+}
+const nextButton = () => {
+  title="Next";
+}
 
   return (
     <>
@@ -53,7 +61,7 @@ const App = () => {
           {/* booking section  */}
           <div className="flex flex-col sm:flex-row  justify-between pt-5 sm:pt-10 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
             <div className="mx-auto sm:w-2/3 w-full  flex-2 p-5 sm:p-10 sm:pt-16 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
-              <MultiStep activeStep={0}>
+              <MultiStep activeStep={0} prevButton={prevButton} nextButton={nextButton}>
                 <ServiceStep
                   selectTab={hundelTabSummary}
                   serviceSlected={hundleDataSelected}

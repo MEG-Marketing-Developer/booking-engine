@@ -6,7 +6,9 @@
 }
 
 button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-primary,
-button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-default {
+button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-default,
+button.ant-btn.css-98ntnt.ant-btn-primary, 
+button.ant-btn.css-98ntnt.ant-btn-default {
   background-color: #123553;
   color: #fff;
   padding-right: 5%;

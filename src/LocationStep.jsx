@@ -8,7 +8,7 @@ const API_KEY = "AIzaSyC6eOUld3offrHhp5c3414PREcndXjf7Tc"; // Replace with your 
 
 const mapContainerStyle = {
   width: "100%",
-  height: "600px",
+  height: "50%",
 };
 
 const center = {

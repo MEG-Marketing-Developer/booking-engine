@@ -5,18 +5,8 @@
   text-align: center;
 }
 
-
-#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div{
-  width: 100%;
-}
-
-#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div > div.mx-auto.sm\:w-2\/3.w-full.flex-2.p-5.sm\:p-10.sm\:pt-16.rounded-3xl.bg-\[\#E7F3FC\].drop-shadow-lg > div > div:nth-child(7) > div{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div > div.mx-auto.sm\:w-2\/3.w-full.flex-2.p-5.sm\:p-10.sm\:pt-16.rounded-3xl.bg-\[\#E7F3FC\].drop-shadow-lg > div > div:nth-child(7) > div > button:nth-child(1),
-#root > main > div.bg-white.w-\[90\%\].sm\:w-3\/4.mx-auto.mt-10.rounded-3xl.h-auto.px-3.py-7.sm\:p-10.flex.flex-col.items-start > div > div.mx-auto.sm\:w-2\/3.w-full.flex-2.p-5.sm\:p-10.sm\:pt-16.rounded-3xl.bg-\[\#E7F3FC\].drop-shadow-lg > div > div:nth-child(7) > div > button:nth-child(2){
+button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-primary,
+button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-default {
   background-color: #123553;
   color: #fff;
   padding-right: 5%;
@@ -26,26 +16,36 @@
   border-radius: 10px;
   margin-top: 3%;
   display: block;
+  height: auto;
 }
-.go2150698616 span{
-  color: #123553;
-  font-size: 25px;
 
+.ant-steps.ant-steps-horizontal {
+  padding-bottom: 2rem;
 }
-.go2150698616{
-min-width: 13rem !important;
+:where(.css-dev-only-do-not-override-98ntnt).ant-steps
+  .ant-steps-item-process
+  .ant-steps-item-icon {
+  background-color: #1f2937;
+  border-color: #1f2937;
 }
-@media only screen and (max-width: 750px) {
-  .go2150698616 span{   
-    font-size: 1rem;
-  }
-  .go2150698616{
-    padding: 10px 0.7rem !important;
-    min-width: 4rem !important;
-  }
-  .go2150698616:before{
-    bottom: -4.99rem !important;
-  }
+
+:where(.css-dev-only-do-not-override-98ntnt).ant-steps
+  .ant-steps-item-process
+  > .ant-steps-item-container
+  > .ant-steps-item-content
+  > .ant-steps-item-title {
+  color: #123553;
+}
+:where(.css-dev-only-do-not-override-98ntnt).ant-steps
+  .ant-steps-item-finish
+  .ant-steps-item-icon {
+  background-color: #fff;
+  border-color: #123553;
+}
+.steps-action{
+  display: flex;
+  justify-content: space-around;
+  
 }
 
 .spinner {
@@ -63,4 +63,3 @@ min-width: 13rem !important;
   color: red;
   font-size: 1.5em;
 }
-

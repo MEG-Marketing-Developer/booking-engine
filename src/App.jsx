@@ -77,6 +77,8 @@ const App = () => {
       content: <ContactStep />,
     },
   ];
+  console.log(selectedContent, "selectedContent");
+  const isEmpty = selectedContent.title == "";
 
   return (
     <>
@@ -103,7 +105,7 @@ const App = () => {
                   <Button onClick={() => prev()}>Previous</Button>
                 )}
                 {current < steps.length - 1 && (
-                  <Button type="primary" onClick={() => next()}>
+                  <Button type="primary" onClick={() => next()} disabled={isEmpty}>
                     Next
                   </Button>
                 )}

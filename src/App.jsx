@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,8 +8,11 @@ import { ServiceStep } from "./ServiceStep";
 import { LocationStep } from "./LocationStep";
 import DateStep from "./DateStep";
 import ContactStep from "./ContactStep";
-import { Stepper } from 'react-form-stepper';
+// import 'antd/dist/antd.css';
+import { Steps, Button, message } from 'antd';
 
+
+const { Step } = Steps;
 
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("1");
@@ -19,6 +22,9 @@ const App = () => {
     title: "",
     image: "",
   });
+  const [page, setPage] = useState(0);
+  const [current, setCurrent] = useState(0);
+
   const [address, setAddress] = useState('');
 
 
@@ -40,12 +46,39 @@ const App = () => {
   const hundleAddress = (newAddress) => {
     setAddress(newAddress);
   }
-const prevButton = () => {
-  title="Previous";
-}
-const nextButton = () => {
-  title="Next";
-}
+ 
+
+const next = () => {
+  setCurrent(current + 1);
+};
+
+const prev = () => {
+  setCurrent(current - 1);
+};
+
+const steps = [
+  {
+    title: 'Services',
+    content:   <ServiceStep
+    selectTab={hundelTabSummary}
+    serviceSlected={hundleDataSelected}
+    contentSelected={handleItemClick}
+    counter={hundleCounter}    
+  />,
+  },
+  {
+    title: 'Address',
+    content:  <LocationStep addressSelected={hundleAddress} />,
+  },
+  {
+    title: 'Date',
+    content: <DateStep />,
+  },
+  {
+    title: 'Contact',
+    content: <ContactStep />,
+  },
+];
 
   return (
     <>
@@ -61,18 +94,33 @@ const nextButton = () => {
           {/* booking section  */}
           <div className="flex flex-col sm:flex-row  justify-between pt-5 sm:pt-10 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
             <div className="mx-auto sm:w-2/3 w-full  flex-2 p-5 sm:p-10 sm:pt-16 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
-              <MultiStep activeStep={0} prevButton={prevButton} nextButton={nextButton}>
-                <ServiceStep
-                  selectTab={hundelTabSummary}
-                  serviceSlected={hundleDataSelected}
-                  contentSelected={handleItemClick}
-                  counter={hundleCounter}
-                  title="Services"
-                />
-                <LocationStep addressSelected={hundleAddress} title="Address" />
-                <DateStep title="Date" />
-                <ContactStep title="Contact" />
-              </MultiStep>
+              <Steps current={current}>
+        {steps.map((item, index) => (
+          <Step key={index} title={item.title} />
+        ))}
+      </Steps>
+      <div className="steps-content">{steps[current].content}</div>
+      <div className="steps-action">
+        {current < steps.length - 1 && (
+          <Button type="primary" onClick={() => next()}>
+            Next
+          </Button>
+        )}
+        {current === steps.length - 1 && (
+          <Button
+            type="primary"
+            onClick={() => message.success('Processing complete!')}
+          >
+            Done
+          </Button>
+        )}
+        {current > 0 && (
+          <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+            Previous
+          </Button>
+        )}
+      </div>
+
             </div>
             <div className="flex-1 space-y-8  h-[20%]">
               <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">

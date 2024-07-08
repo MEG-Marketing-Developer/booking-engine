@@ -77,7 +77,7 @@ const App = () => {
       content: <ContactStep />,
     },
   ];
-  const isEmpty = selectedContent.title == "";
+  const isEmpty = selectedContent.title == "" || selectedData== null;
 
   return (
     <>

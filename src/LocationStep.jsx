@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 import Spinner from "./components/Spinner";
+import Autocomplete from "react-google-autocomplete";
 import "./App.css";
 
 const API_KEY = "AIzaSyC6eOUld3offrHhp5c3414PREcndXjf7Tc"; // Replace with your Google Maps API key
@@ -76,6 +77,14 @@ export const LocationStep = ({ addressSelected }) => {
     await getAddress(lat, lng);
   };
 
+  const handlePlaceSelected = (place) => {
+    const lat = place.geometry.location.lat();
+    const lng = place.geometry.location.lng();
+    setLocation({ latitude: lat, longitude: lng });
+    setAddress(place.formatted_address);
+    addressSelected(place.formatted_address);
+  };
+
   const handleRedetectLocation = () => {
     getLocation();
   };
@@ -94,6 +103,19 @@ export const LocationStep = ({ addressSelected }) => {
         <div className="flex py-10 justify-start space-x-3">
           <h3 className="font-bold text-xl">Address: </h3>
           <p className="text-xl">{address}</p>
+        </div>
+        <div className="flex py-2">
+          <Autocomplete
+            apiKey={API_KEY}
+            onPlaceSelected={handlePlaceSelected}
+            options={{
+              types: ["geocode"],
+            }}
+            className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
+            placeholder="Search for a location"
+          />
+                 
+
         </div>
         <div className="h-[100%]">
           <LoadScript googleMapsApiKey={API_KEY}>

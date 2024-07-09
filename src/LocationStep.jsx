@@ -1,21 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 import Spinner from "./components/Spinner";
 import Autocomplete from "react-google-autocomplete";
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import "./App.css";
 
-const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY; // Replace with your Google Maps API key
+const API_KEY = "AIzaSyC6eOUld3offrHhp5c3414PREcndXjf7Tc"; // Replace with your Google Maps API key
 
 const mapContainerStyle = {
   width: "100%",
   height: "50%",
-};
-
-const center = {
-  lat: 0,
-  lng: 0,
 };
 
 export const LocationStep = ({ addressSelected }) => {
@@ -24,7 +18,7 @@ export const LocationStep = ({ addressSelected }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const getLocation = () => {
+  const getLocation = useCallback(() => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -40,37 +34,40 @@ export const LocationStep = ({ addressSelected }) => {
     } else {
       setError("Geolocation is not supported by this browser.");
     }
-  };
+  }, []);
 
-  const getAddress = async (lat, lng) => {
-    try {
-      const response = await axios.get(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${API_KEY}`
-      );
-      if (response.data.status === "OK") {
-        setAddress(response.data.results[0].formatted_address);
-        setLoading(false);
-        addressSelected(response.data.results[0].formatted_address);
-      } else {
-        setError("Unable to retrieve address");
+  const getAddress = useCallback(
+    async (lat, lng) => {
+      try {
+        const response = await axios.get(
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${API_KEY}`
+        );
+        if (response.data.status === "OK") {
+          setAddress(response.data.results[0].formatted_address);
+          setLoading(false);
+          addressSelected(response.data.results[0].formatted_address);
+        } else {
+          setError("Unable to retrieve address");
+          setLoading(false);
+        }
+      } catch (error) {
+        setError(error.message);
         setLoading(false);
       }
-    } catch (error) {
-      setError(error.message);
-      setLoading(false);
-    }
-  };
+    },
+    [addressSelected]
+  );
 
   useEffect(() => {
     getLocation();
-  }, []);
+  }, [getLocation]);
 
   useEffect(() => {
     if (location.latitude && location.longitude) {
       getAddress(location.latitude, location.longitude);
     }
-  }, [location]);
-  
+  }, [location, getAddress]);
+
   const handleMapClick = async (event) => {
     const lat = event.latLng.lat();
     const lng = event.latLng.lng();
@@ -115,17 +112,6 @@ export const LocationStep = ({ addressSelected }) => {
             className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
             placeholder="Search for a location"
           />
-             {/* <GooglePlacesAutocomplete
-    apiKey={API_KEY}
-    onPlaceSelected={handlePlaceSelected}
-    options={{
-      types: ["geocode"],
-    }}
-    className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
-    placeholder="Search for a location"
-     
-             />     */}
-
         </div>
         <div className="h-[100%]">
           <LoadScript googleMapsApiKey={API_KEY}>
@@ -140,7 +126,9 @@ export const LocationStep = ({ addressSelected }) => {
               />
             </GoogleMap>
           </LoadScript>
-          <button className="text-center w-fit mt-5 p-5 border border-[#123553] rounded-md" onClick={handleRedetectLocation}>Detect My Location Again</button>
+          <button className="text-center w-fit mt-5 p-5 border border-[#123553] rounded-md" onClick={handleRedetectLocation}>
+            Detect My Location Again
+          </button>
         </div>
       </div>
     </div>

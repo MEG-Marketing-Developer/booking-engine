@@ -3,6 +3,7 @@ import axios from "axios";
 import { GoogleMap, LoadScript, MarkerF } from "@react-google-maps/api";
 import Spinner from "./components/Spinner";
 import Autocomplete from "react-google-autocomplete";
+import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 import "./App.css";
 
 const API_KEY = "AIzaSyC6eOUld3offrHhp5c3414PREcndXjf7Tc"; // Replace with your Google Maps API key
@@ -114,7 +115,16 @@ export const LocationStep = ({ addressSelected }) => {
             className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
             placeholder="Search for a location"
           />
-                 
+             {/* <GooglePlacesAutocomplete
+    apiKey={API_KEY}
+    onPlaceSelected={handlePlaceSelected}
+    options={{
+      types: ["geocode"],
+    }}
+    className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
+    placeholder="Search for a location"
+     
+             />     */}
 
         </div>
         <div className="h-[100%]">

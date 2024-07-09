@@ -106,7 +106,7 @@ export const LocationStep = ({ addressSelected }) => {
           <p className="text-xl">{address}</p>
         </div>
         <div className="flex py-2">
-          <Autocomplete
+          {/* <Autocomplete
             apiKey={API_KEY}
             onPlaceSelected={handlePlaceSelected}
             options={{
@@ -114,8 +114,8 @@ export const LocationStep = ({ addressSelected }) => {
             }}
             className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
             placeholder="Search for a location"
-          />
-             {/* <GooglePlacesAutocomplete
+          /> */}
+             <GooglePlacesAutocomplete
     apiKey={API_KEY}
     onPlaceSelected={handlePlaceSelected}
     options={{
@@ -124,7 +124,7 @@ export const LocationStep = ({ addressSelected }) => {
     className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
     placeholder="Search for a location"
      
-             />     */}
+             />    
 
         </div>
         <div className="h-[100%]">

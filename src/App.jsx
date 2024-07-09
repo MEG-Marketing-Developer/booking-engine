@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import logoIcone from "../public/images/mammut-logo-icon.png";
 import { ServiceStep } from "./ServiceStep";
 import { LocationStep } from "./LocationStep";
+import { LoadScript } from "@react-google-maps/api";
 import DateStep from "./DateStep";
 import ContactStep from "./ContactStep";
 // import 'antd/dist/antd.css';
@@ -51,6 +52,9 @@ const App = () => {
   const prev = () => {
     setCurrent(current - 1);
   };
+  const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+
+const libraries = ["places"];
 
   const steps = [
     {
@@ -66,7 +70,11 @@ const App = () => {
     },
     {
       title: "Address",
-      content: <LocationStep addressSelected={hundleAddress} />,
+      content: 
+      <LoadScript googleMapsApiKey={API_KEY} libraries={libraries}>
+      <LocationStep apiKey={API_KEY} addressSelected={hundleAddress} />
+      </LoadScript>
+      ,
     },
     {
       title: "Date",

@@ -5,7 +5,7 @@ import Spinner from "./components/Spinner";
 import Autocomplete from "react-google-autocomplete";
 import "./App.css";
 
-const API_KEY = "AIzaSyC6eOUld3offrHhp5c3414PREcndXjf7Tc"; // Replace with your Google Maps API key
+const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY; // Replace with your Google Maps API key
 
 const mapContainerStyle = {
   width: "100%",

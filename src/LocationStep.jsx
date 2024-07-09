@@ -40,7 +40,7 @@ export const LocationStep = ({ addressSelected }) => {
     async (lat, lng) => {
       try {
         const response = await axios.get(
-          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${API_KEY}`
+          `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${API_KEY}&libraries=places`
         );
         if (response.data.status === "OK") {
           setAddress(response.data.results[0].formatted_address);

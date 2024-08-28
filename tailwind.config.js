@@ -17,6 +17,16 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        segoe: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+      },
+      filter: {
+        'custom-blue': 'invert(15%) sepia(24%) saturate(3714%) hue-rotate(172deg) brightness(90%) contrast(101%)',        
+      },
+      boxShadow: {
+        'custom-light': '0px 10px 15px -3px rgba(0,0,0,0.1)',        
+      },
+
       flex: {
         '2': '2 2 0%'
       },
@@ -79,5 +89,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require('tailwindcss-filters'),
+  ],
 }

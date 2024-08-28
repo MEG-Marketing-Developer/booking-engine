@@ -32,7 +32,8 @@
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "tailwindcss-filters": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

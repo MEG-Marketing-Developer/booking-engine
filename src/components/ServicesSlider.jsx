@@ -11,20 +11,18 @@ import "./ButtonSilder.css";
 function ServicesSlider({ onDataSelected }) {
   const [activeIndex, setActiveIndex] = useState(null);
   const items = [
-    { id: 1, value: "One Time" },
-    { id: 2, value: "Once a Week" },
-    { id: 3, value: "Every Other Week" },
-    { id: 4, value: "Every 3 Weeks" },
-    { id: 5, value: "Every 4 Weeks" },
-    { id: 6, value: "Every 5 Weeks" },
-    { id: 7, value: "Every 6 Weeks" },
-    { id: 8, value: "Twice a Week" },
-    { id: 9, value: "Thrice a Week" },
-    { id: 10, value: "Twice a Week" },
-    { id: 11, value: "Thrice a Week" },
-    { id: 12, value: "4 Times a Week" },
-    { id: 13, value: "5 Times a Week" },
-    { id: 14, value: "6  Times a Week" },
+    { id: 1, value: "One Time", value1: "One", value2: "Time" },
+    { id: 2, value: "Once a Week", value1: "Once", value2: "a Week" },
+    { id: 3, value: "Every Week", value1: "Every", value2: "Week" },
+    { id: 4, value: "Every 3 Weeks", value1: "Every", value2: "3 Weeks" },
+    { id: 5, value: "Every 4 Weeks", value1: "Every", value2: "4 Weeks" },
+    { id: 6, value: "Every 5 Weeks", value1: "Every", value2: "5 Weeks" },
+    { id: 7, value: "Every 6 Weeks", value1: "Every", value2: "6 Weeks" },
+    { id: 8, value: "Twice a Week" , value1: "Twice", value2: "a week"},
+    { id: 9, value: "Thrice a Week" , value1: "Thrice", value2: "a week"},
+    { id: 10, value: "4 Times a Week" , value1: "4 Times", value2: "a week"},
+    { id: 11, value: "5 Times a Week" , value1: "5 Times", value2: "a week"},
+    { id: 12, value: "6 Times a Week" , value1: "6 Times", value2: "a week"},
   ];
   const handleClick = (index) => {
     setActiveIndex(index);
@@ -32,22 +30,24 @@ function ServicesSlider({ onDataSelected }) {
   };
 
   return (
-    <>
-      <h1 className="text-base sm:text-2xl text-left my-3 text-[#123553] font-bold">
+    <div className="bg-[#E1E7E9] py-7 my-10">
+      <h1 className="text-base sm:text-3xl my-8 text-[#1D506A] font-bold text-center font-segoe uppercase ">
         Select your booking frequency
       </h1>
-      <Carousel className="w-full">
+      <Carousel className="w-[75%] mx-auto carousel-container">
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem className="basis-[40%]" key={item.id}>
+            <CarouselItem className="basis-[16%]" key={item.id}>
               <li
                 key={item.id}
-                className={`web-list-item w-full text-base sm:text-xl rounded-lg ${
+                className={`web-list-service font-segoe h-[100px] bg-white w-full rounded-lg border border-solid border-[#113553] shadow-custom-light ${
                   index === activeIndex ? "active" : ""
                 }`}
                 onClick={() => handleClick(index)}
               >
-                {item.value}
+                <span className="text-base">{item.value1}</span>
+                <span className="text-xl">{item.value2}</span>
+                
               </li>
             </CarouselItem>
           ))}
@@ -55,7 +55,7 @@ function ServicesSlider({ onDataSelected }) {
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-    </>
+    </div>
   );
 }
 

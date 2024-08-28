@@ -7,9 +7,9 @@
 
 button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-primary,
 button.ant-btn.css-dev-only-do-not-override-98ntnt.ant-btn-default,
-button.ant-btn.css-98ntnt.ant-btn-primary, 
+button.ant-btn.css-98ntnt.ant-btn-primary,
 button.ant-btn.css-98ntnt.ant-btn-default {
-  background-color: #123553;
+  background-color: #336985;
   color: #fff;
   padding-right: 5%;
   padding-left: 5%;
@@ -19,35 +19,44 @@ button.ant-btn.css-98ntnt.ant-btn-default {
   margin-top: 3%;
   display: block;
   height: auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
 }
 
 .ant-steps.ant-steps-horizontal {
   padding-bottom: 2rem;
 }
-.ant-steps
-  .ant-steps-item-process
-  .ant-steps-item-icon {
-  background-color: #1f2937;
-  border-color: #1f2937;
+.ant-steps .ant-steps-item-process .ant-steps-item-icon {
+  background-color: transparent;
+  border-color: #123553;
+  color: #123553;
 }
-
+:where(.css-dev-only-do-not-override-98ntnt).ant-steps
+  .ant-steps-item-process
+  .ant-steps-item-icon
+  > .ant-steps-icon {
+  color: #1d506a;
+}
+:where(.css-dev-only-do-not-override-98ntnt).ant-steps .ant-steps-item-title {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 21px;
+}
 .ant-steps
   .ant-steps-item-process
   > .ant-steps-item-container
   > .ant-steps-item-content
   > .ant-steps-item-title {
-  color: #123553;
+  color: #1d506a;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 21px;
 }
-.ant-steps
-  .ant-steps-item-finish
-  .ant-steps-item-icon {
+.ant-steps .ant-steps-item-finish .ant-steps-item-icon {
   background-color: #fff;
   border-color: #123553;
 }
-.steps-action{
+.steps-action {
   display: flex;
   justify-content: space-around;
-
 }
 
 .spinner {

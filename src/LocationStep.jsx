@@ -5,6 +5,7 @@ import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import Spinner from "./components/Spinner";
 import Autocomplete from "react-google-autocomplete";
 import "./App.css";
+import locationImage from "../public/images/location.svg";
 
 const mapContainerStyle = {
   width: "100%",
@@ -97,18 +98,26 @@ export const LocationStep = ({ addressSelected, apiKey }) => {
   return (
     <div>
       <div className="h-[100vh]">
-        <div className="flex py-10 justify-start space-x-3">
-          <h3 className="font-bold text-xl">Address: </h3>
-          <p className="text-xl">{address}</p>
+        <h2 className="uppercase text-[#1D506A] text-left p-5 w-[90%] mx-auto font-semibold font-segoe">
+          Address deticted
+        </h2>
+        <div className="flex flex-row items-center space-x-3 p-5 rounded-full bg-[#DDE4E6] shadow-md w-[90%] mx-auto">
+          <img
+            src={locationImage}
+            alt="location"
+            className="service-icon w-auto h-auto rounded-full transition-transform"
+          />
+          <p className="text-base text-[#1D506A]">{address}</p>
         </div>
-        <div className="flex py-2">
+
+        <div className="flex py-6">
           <Autocomplete
             apiKey={apiKey}
             onPlaceSelected={handlePlaceSelected}
             options={{
               types: ["geocode"],
             }}
-            className="address-autocomplete-input w-full pl-3 mb-2.5 h-[50px] rounded-t-lg text-xl"
+            className="address-autocomplete-input  text-[#1D506A] placeholder-[#1D506A] pl-8 mb-2.5 text-xl space-x-3 p-5 rounded-full bg-[#DDE4E6] shadow-md w-[90%] mx-auto"
             placeholder="Search for a location"
           />
         </div>
@@ -123,7 +132,10 @@ export const LocationStep = ({ addressSelected, apiKey }) => {
               position={{ lat: location.latitude, lng: location.longitude }}
             />
           </GoogleMap>
-          <button className="text-center w-fit mt-5 p-5 border border-[#123553] rounded-md" onClick={handleRedetectLocation}>
+          <button
+            className="text-center w-fit mt-5 p-5 border border-[#123553] rounded-md"
+            onClick={handleRedetectLocation}
+          >
             Detect My Location Again
           </button>
         </div>

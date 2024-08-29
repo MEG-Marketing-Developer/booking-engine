@@ -7,15 +7,30 @@ import { LocationStep } from "./LocationStep";
 import { LoadScript } from "@react-google-maps/api";
 import DateStep from "./DateStep";
 import ContactStep from "./ContactStep";
+import booking from "../public/images/booking-details.svg";
+import addressImage from "../public/images/address.svg";
+import contacts from "../public/images/contacts.svg";
+import dateTime from "../public/images/date-time.svg";
+import date from "../public/images/date.svg";
+import email from "../public/images/email.svg";
+import frequency from "../public/images/frequency.svg";
+import location from "../public/images/location.svg";
+import name from "../public/images/name.svg";
+import phone from "../public/images/phone.svg";
+import service from "../public/images/service.svg";
+import time from "../public/images/time.svg";
+import hours from "../public/images/hour-small.svg";
+import crew from "../public/images/crew-small.svg";
+
 // import 'antd/dist/antd.css';
 import { Steps, Button, message } from "antd";
 
 const { Step } = Steps;
 
 const App = () => {
-  const [selectedTab, setSelectedTab] = useState("1");
+  const [selectedTab, setSelectedTab] = useState("");
   const [selectedData, setSelectedData] = useState(null);
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState();
   const [selectedContent, setSelectedContent] = useState(null);
 
   const [page, setPage] = useState(0);
@@ -51,7 +66,7 @@ const App = () => {
   };
   const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
-const libraries = ["places"];
+  const libraries = ["places"];
 
   const steps = [
     {
@@ -67,11 +82,11 @@ const libraries = ["places"];
     },
     {
       title: "Address",
-      content: 
-      <LoadScript googleMapsApiKey={API_KEY} libraries={libraries}>
-      <LocationStep apiKey={API_KEY} addressSelected={hundleAddress} />
-      </LoadScript>
-      ,
+      content: (
+        <LoadScript googleMapsApiKey={API_KEY} libraries={libraries}>
+          <LocationStep apiKey={API_KEY} addressSelected={hundleAddress} />
+        </LoadScript>
+      ),
     },
     {
       title: "Date",
@@ -82,24 +97,27 @@ const libraries = ["places"];
       content: <ContactStep />,
     },
   ];
-  const isEmpty = selectedContent == null || selectedData== null;
-console.log(selectedContent,"selcted")
+  const isEmpty = selectedContent == null || selectedData == null;
+  console.log(selectedContent, "selcted");
   return (
     <>
       <Header />
       <main className="bg-custom-bg bg-cover bg-center py-24">
-        
         {/* content section  */}
-        <div className="bg-white w-[90%] sm:w-[95%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 sm:pl-0 flex flex-col items-start">
-       
+        <div className="bg-white w-[90%] sm:w-[95%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-start">
           {/* booking section  */}
-          <div className="flex flex-col sm:flex-row  justify-between pt-5 sm:pt-10 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
-       
-            <div className="mx-auto sm:w-2/3 sm:pl-0 w-full  flex-2 p-5">
-            <h1 className="text-4xl uppercase text-[#1D506A] font-segoe font-bold pb-16">Quick Booking</h1>
+          <div className="flex flex-col sm:flex-row  justify-between pt-5 sm:pt-0 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
+            <div className="mx-auto sm:w-2/3 md:pr-0 sm:pl-0 w-full  flex-2 p-5">
+              <h1 className="text-4xl uppercase text-[#1D506A] font-segoe font-bold pb-16">
+                Quick Booking
+              </h1>
               <Steps current={current} className="sm:px-24">
                 {steps.map((item, index) => (
-                  <Step key={index} title={item.title} className="custom-step" />
+                  <Step
+                    key={index}
+                    title={item.title}
+                    className="custom-step"
+                  />
                 ))}
               </Steps>
               <div className="steps-content">{steps[current].content}</div>
@@ -108,7 +126,11 @@ console.log(selectedContent,"selcted")
                   <Button onClick={() => prev()}>Previous</Button>
                 )}
                 {current < steps.length - 1 && (
-                  <Button type="primary" onClick={() => next()} disabled={isEmpty}>
+                  <Button
+                    type="primary"
+                    onClick={() => next()}
+                    disabled={isEmpty}
+                  >
                     Next
                   </Button>
                 )}
@@ -122,96 +144,157 @@ console.log(selectedContent,"selcted")
                 )}
               </div>
             </div>
-            <div className="flex-1 space-y-8  h-[20%]">
-              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg">
-                <div className="text-xl font-bold text-[#123553]">
-                  Booking Details
+            <div className="flex-1 space-y-8 md:!ml-0 bg-[#E4ECEF] rounded-tr-3xl rounded-br-3xl border-l-2 border-[#286380]">
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
+                <div className="flex flex-row space-x-3 px-7">
+                  <img
+                    src={booking}
+                    alt="booking-details"
+                    className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                  />
+                  <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                    Booking Details
+                  </h1>
                 </div>
-                {selectedContent && (
-                  <div className="text-left rounded-lg space-y-3 flex flex-col w-full items-start justify-around">
-                    <div className="flex w-full justify-between">
-                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                {/* {selectedContent && ( */}
+                <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
+                  <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
+                    <div className="flex flex-row space-x-3 px-7">
+                      <img
+                        src={service}
+                        alt="service"
+                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      />
+                      <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Service
                       </h2>
-                      <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
-                        {selectedContent}
-                      </h3>
                     </div>
+                    {selectedContent && (
+                      <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                        <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
+                          {selectedContent}
+                        </h3>
+                      </div>
+                    )}
+                  </div>
 
-                    <div className="flex w-full justify-between">
-                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                  <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
+                    <div className="flex flex-row space-x-3 px-7">
+                      <img
+                        src={hours}
+                        alt="hours"
+                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      />
+                      <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Hours
                       </h2>
-                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
-                        {count} hours
-                      </h3>
                     </div>
+                    {count && (
+                      <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                        <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
+                          {count} hours
+                        </h3>
+                      </div>
+                    )}
+                  </div>
 
-                    <div className="flex w-full justify-between">
-                      <h2 className="text-base sm:text-xl  text-[#123553]">
+                  <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
+                    <div className="flex flex-row space-x-3 px-7">
+                      <img
+                        src={crew}
+                        alt="crew"
+                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      />
+                      <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Crew Workers
                       </h2>
-                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
-                        {selectedTab} Crew
-                      </h3>
                     </div>
+                    {selectedTab && (
+                      <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                        <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
+                          {selectedTab} Crew
+                        </h3>
+                      </div>
+                    )}
+                  </div>
 
-                    <div className="flex w-full justify-between">
-                      <h2 className="text-base sm:text-xl  text-[#123553]">
-                        booking frequency
+                  <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
+                    <div className="flex flex-row space-x-3 px-7">
+                      <img
+                        src={frequency}
+                        alt="frequency"
+                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      />
+                      <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
+                        frequency
                       </h2>
-                      <h3 className="text-base sm:text-xl text-right text-[#123553] pl-4">
-                        {selectedData}
-                      </h3>
+                    </div>
+                    {selectedData && (
+                      <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                        <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
+                          {selectedData}
+                        </h3>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                <div className="flex flex-row space-x-3 px-7">
+                  <img
+                    src={addressImage}
+                    alt="address"
+                    className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                  />
+                  <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                    Address
+                  </h1>
+                </div>
+                <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                {address && (
+                  <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                    <div className="px-7">
+                      <img
+                        src={location}
+                        alt="location"
+                        className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="text-base sm:text-xl text-right text-[#123553]">
+                      <h3>{address}</h3>
                     </div>
                   </div>
                 )}
               </div>
 
-              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg ">
-                <div className="text-xl font-bold text-[#123553]">Address</div>
-                 {address && (
-                <div className="w-full flex justify-between pt-5 space-x-3">
-                  <div>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      strokeWidth={1.5}
-                      stroke="currentColor"
-                      className="size-6"
-                    >
-                      {" "}
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-                      />{" "}
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                      />{" "}
-                    </svg>
-                  </div>
-                  <div className="text-base sm:text-xl text-right text-[#123553]">
-                  {address}
-                 </div>
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                <div className="flex flex-row space-x-3 px-7">
+                  <img
+                    src={dateTime}
+                    alt="date-time"
+                    className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                  />
+                  <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                    Date and Time
+                  </h1>
                 </div>
-                )}
-               
+                <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
               </div>
 
-              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg ">
-                <div className="text-xl font-bold text-[#123553]">
-                  Date and Time
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                <div className="flex flex-row space-x-3 px-7">
+                  <img
+                    src={contacts}
+                    alt="contact information"
+                    className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                  />
+                  <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                    Contact Information
+                  </h1>
                 </div>
-              </div>
-
-              <div className="text-left flex flex-col w-full items-start justify-around px-6 py-10 rounded-3xl bg-[#E7F3FC] drop-shadow-lg ">
-                <div className="text-xl font-bold text-[#123553]">
-                  Contact Information
-                </div>
+                <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
               </div>
             </div>
           </div>

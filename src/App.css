@@ -74,3 +74,22 @@ button.ant-btn.css-98ntnt.ant-btn-default {
   color: red;
   font-size: 1.5em;
 }
+.timePickerClassName label, .timePickerClassName input{
+  color: #336985;
+  font-weight: bold;
+  font-family: "Segoe UI";
+}
+.datePickerClassName .MuiPickersCalendarHeader-label{
+  color: #1D506A;
+  font-weight: bold;
+  font-family: "Segoe UI";
+}
+.datePickerClassName .MuiDayCalendar-header{
+  background-color: #F5F5F5;
+} 
+.datePickerClassName .MuiDayCalendar-header span{
+  color: #707070;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: "Segoe UI";
+}

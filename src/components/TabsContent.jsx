@@ -22,7 +22,7 @@ function TabsContent({ onTabChange }) {
       </div>
       <Tabs
         onValueChange={handleTabChange}
-        defaultValue="1"
+        defaultValue=""
         className={cn("relative w-fit")}
       >
         <TabsList>

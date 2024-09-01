@@ -11,16 +11,17 @@ import booking from "../public/images/booking-details.svg";
 import addressImage from "../public/images/address.svg";
 import contacts from "../public/images/contacts.svg";
 import dateTime from "../public/images/date-time.svg";
-import date from "../public/images/date.svg";
-import email from "../public/images/email.svg";
+import dateImage from "../public/images/date.svg";
+import emailImage from "../public/images/email.svg";
 import frequency from "../public/images/frequency.svg";
 import location from "../public/images/location.svg";
-import name from "../public/images/name.svg";
-import phone from "../public/images/phone.svg";
+import nameImage from "../public/images/name.svg";
+import phoneImage from "../public/images/phone.svg";
 import service from "../public/images/service.svg";
-import time from "../public/images/time.svg";
+import timeImage from "../public/images/time.svg";
 import hours from "../public/images/hour-small.svg";
 import crew from "../public/images/crew-small.svg";
+import dayjs from "dayjs";
 
 // import 'antd/dist/antd.css';
 import { Steps, Button, message } from "antd";
@@ -30,13 +31,12 @@ const { Step } = Steps;
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("");
   const [selectedData, setSelectedData] = useState(null);
-  const [count, setCount] = useState();
+  const [count, setCount] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);
-
-  const [page, setPage] = useState(0);
   const [current, setCurrent] = useState(0);
-
   const [address, setAddress] = useState("");
+  const [date, setDate] = useState(null);
+  const [time, setTime] = useState(null);
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -57,6 +57,13 @@ const App = () => {
     setAddress(newAddress);
   };
 
+  const hundleDateSelected = (newDate) => {
+    setDate(newDate);
+  };
+  const hundelTimeSeselected = (newTime) => {
+    setTime(newTime);
+  };
+
   const next = () => {
     setCurrent(current + 1);
   };
@@ -67,7 +74,6 @@ const App = () => {
   const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
   const libraries = ["places"];
-
   const steps = [
     {
       title: "Services",
@@ -90,15 +96,24 @@ const App = () => {
     },
     {
       title: "Date",
-      content: <DateStep />,
+      content: (
+        <DateStep
+          dateSelected={hundleDateSelected}
+          timeSelected={hundelTimeSeselected}
+        />
+      ),
     },
     {
       title: "Contact",
       content: <ContactStep />,
     },
   ];
-  const isEmpty = selectedContent == null || selectedData == null;
-  console.log(selectedContent, "selcted");
+  const isEmpty =
+    selectedContent == null ||
+    selectedData == null ||
+    selectedTab == "" ||
+    count == "";
+
   return (
     <>
       <Header />
@@ -253,20 +268,18 @@ const App = () => {
                   </h1>
                 </div>
                 <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
-                {address && (
-                  <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                    <div className="px-7">
-                      <img
-                        src={location}
-                        alt="location"
-                        className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
-                      />
-                    </div>
-                    <div className="text-base sm:text-xl text-right text-[#123553]">
-                      <h3>{address}</h3>
-                    </div>
+                <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                  <div className="px-7">
+                    <img
+                      src={location}
+                      alt="location"
+                      className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                    />
                   </div>
-                )}
+                  <div className="text-base sm:text-xl text-left text-[#123553]">
+                    <h3>{address}</h3>
+                  </div>
+                </div>
               </div>
 
               <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
@@ -281,6 +294,37 @@ const App = () => {
                   </h1>
                 </div>
                 <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
+                  <div className="w-full flex justify-start items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                    <div className="px-7">
+                      <img
+                        src={dateImage}
+                        alt="dateImage"
+                        className="service-icon w-[30px] h-[50px]  object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                      <h3 className="text-base sm:text-xl  text-[#123553]">
+                        {dayjs(date).format("MMM D YYYY")}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="w-full flex justify-start items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                    <div className="px-7">
+                      <img
+                        src={timeImage}
+                        alt="timeImage"
+                        className="service-icon w-[30px] h-[30px] object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                      <h3 className="text-base sm:text-xl  text-[#123553]">
+                        {dayjs(time).format("hh:mm A")}
+                        </h3>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
@@ -295,6 +339,46 @@ const App = () => {
                   </h1>
                 </div>
                 <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
+                  <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                    <div className="px-7">
+                      <img
+                        src={nameImage}
+                        alt="nameImage"
+                        className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="text-base sm:text-xl text-left text-[#123553]">
+                      <h3>{}</h3>
+                    </div>
+                  </div>
+
+                  <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                    <div className="px-7">
+                      <img
+                        src={emailImage}
+                        alt="emailImage"
+                        className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="text-base sm:text-xl text-left text-[#123553]">
+                      <h3>{}</h3>
+                    </div>
+                  </div>
+
+                  <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                    <div className="px-7">
+                      <img
+                        src={phoneImage}
+                        alt="phoneImage"
+                        className="service-icon w-[20px] h-[20px] object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="text-base sm:text-xl text-left text-[#123553]">
+                      <h3>{address}</h3>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

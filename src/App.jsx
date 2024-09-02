@@ -37,6 +37,7 @@ const App = () => {
   const [address, setAddress] = useState("");
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
+  const [formData, setFormData] = useState({});
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -63,7 +64,10 @@ const App = () => {
   const hundelTimeSeselected = (newTime) => {
     setTime(newTime);
   };
-
+  const handleInputChange = (formData) => {
+    setFormData(formData);
+  };
+  console.log(formData);
   const next = () => {
     setCurrent(current + 1);
   };
@@ -105,7 +109,7 @@ const App = () => {
     },
     {
       title: "Contact",
-      content: <ContactStep />,
+      content: <ContactStep onInputChange={handleInputChange} />,
     },
   ];
   const isEmpty =
@@ -154,7 +158,7 @@ const App = () => {
                     type="primary"
                     onClick={() => message.success("Processing complete!")}
                   >
-                    Done
+                    Confirm
                   </Button>
                 )}
               </div>
@@ -304,11 +308,11 @@ const App = () => {
                       />
                     </div>
                     {date && (
-                    <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                      <h3 className="text-base sm:text-xl  text-[#123553]">
-                        {dayjs(date).format("MMM D YYYY")}
-                      </h3>
-                    </div>
+                      <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                        <h3 className="text-base sm:text-xl  text-[#123553]">
+                          {dayjs(date).format("MMM D YYYY")}
+                        </h3>
+                      </div>
                     )}
                   </div>
 
@@ -321,12 +325,12 @@ const App = () => {
                       />
                     </div>
                     {time && (
-                    <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                      <h3 className="text-base sm:text-xl  text-[#123553]">
-                        {dayjs(time).format("hh:mm A")}
+                      <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                        <h3 className="text-base sm:text-xl  text-[#123553]">
+                          {dayjs(time).format("hh:mm A")}
                         </h3>
-                    </div>
-                  )}
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
@@ -352,9 +356,13 @@ const App = () => {
                         className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
                       />
                     </div>
-                    <div className="text-base sm:text-xl text-left text-[#123553]">
-                      <h3>{}</h3>
-                    </div>
+                    {formData.fullName && (
+                      <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                        <h3 className="text-base sm:text-xl  text-[#123553]">
+                          {formData.fullName}
+                        </h3>
+                      </div>
+                    )}
                   </div>
 
                   <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
@@ -365,9 +373,13 @@ const App = () => {
                         className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
                       />
                     </div>
-                    <div className="text-base sm:text-xl text-left text-[#123553]">
-                      <h3>{}</h3>
-                    </div>
+                    {formData.email && (
+                      <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                        <h3 className="text-base sm:text-xl  text-[#123553]">
+                          {formData.email}
+                        </h3>
+                      </div>
+                    )}
                   </div>
 
                   <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
@@ -378,9 +390,13 @@ const App = () => {
                         className="service-icon w-[20px] h-[20px] object-contain rounded-full  transition-transform"
                       />
                     </div>
-                    <div className="text-base sm:text-xl text-left text-[#123553]">
-                      <h3>{}</h3>
-                    </div>
+                    {formData.phoneNumber && (
+                      <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                        <h3 className="text-base sm:text-xl  text-[#123553]">
+                          {formData.phoneNumber}
+                        </h3>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

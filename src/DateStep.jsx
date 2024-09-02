@@ -30,7 +30,7 @@ function DateStep({ dateSelected, timeSelected }) {
   return (
     <>
       {/* <div>Booking Type</div> */}
-      <div className="w-full flex items-center justify-center">
+      <div className="w-full flex flex-col md:flex-row h-[50vh] items-center justify-center">
         <div className="flex-1">
           <LocalizationProvider dateAdapter={AdapterDayjs}>
             <DateCalendar

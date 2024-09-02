@@ -97,7 +97,7 @@ export const LocationStep = ({ addressSelected, apiKey }) => {
 
   return (
     <div>
-      <div className="h-[100vh]">
+      <div className="h-[150vh] sm:h-[100vh]">
         <h2 className="uppercase text-[#1D506A] text-left p-5 w-[90%] mx-auto font-semibold font-segoe">
           Address deticted
         </h2>

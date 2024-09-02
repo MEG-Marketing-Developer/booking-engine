@@ -303,11 +303,13 @@ const App = () => {
                         className="service-icon w-[30px] h-[50px]  object-contain rounded-full  transition-transform"
                       />
                     </div>
+                    {date && (
                     <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
                       <h3 className="text-base sm:text-xl  text-[#123553]">
                         {dayjs(date).format("MMM D YYYY")}
                       </h3>
                     </div>
+                    )}
                   </div>
 
                   <div className="w-full flex justify-start items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
@@ -318,11 +320,13 @@ const App = () => {
                         className="service-icon w-[30px] h-[30px] object-contain rounded-full  transition-transform"
                       />
                     </div>
+                    {time && (
                     <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
                       <h3 className="text-base sm:text-xl  text-[#123553]">
                         {dayjs(time).format("hh:mm A")}
                         </h3>
                     </div>
+                  )}
                   </div>
                 </div>
               </div>
@@ -375,7 +379,7 @@ const App = () => {
                       />
                     </div>
                     <div className="text-base sm:text-xl text-left text-[#123553]">
-                      <h3>{address}</h3>
+                      <h3>{}</h3>
                     </div>
                   </div>
                 </div>

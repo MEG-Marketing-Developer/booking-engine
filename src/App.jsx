@@ -136,7 +136,7 @@ const App = () => {
             {/* content section  */}
             <div className="bg-white w-[90%] sm:w-[95%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-start">
               {/* booking section  */}
-              <div className="flex flex-col sm:flex-row  justify-between pt-5 sm:pt-0 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
+              <div className="flex flex-col xl:flex-row  justify-between pt-5 sm:pt-0 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
                 <div className="mx-auto sm:w-2/3 md:pr-0 sm:pl-0 w-full  flex-2 p-5">
                   <h1 className="text-4xl uppercase text-[#1D506A] font-segoe font-bold pb-16">
                     Quick Booking
@@ -182,7 +182,7 @@ const App = () => {
                       <img
                         src={booking}
                         alt="booking-details"
-                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                        className="service-icon w-auto h-auto    transition-transform"
                       />
                       <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Booking Details
@@ -191,19 +191,19 @@ const App = () => {
                     <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
                     {/* {selectedContent && ( */}
                     <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
-                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
-                        <div className="flex flex-row space-x-3 px-7">
+                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                        <div className="flex flex-row space-x-3 px-7 justify-center">
                           <img
                             src={service}
                             alt="service"
-                            className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                            className="service-icon w-auto h-auto   transition-transform"
                           />
                           <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                             Service
                           </h2>
                         </div>
                         {selectedContent && (
-                          <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                          <div className="px-7 py-4 mx-auto md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
                             <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
                               {selectedContent}
                             </h3>
@@ -211,19 +211,19 @@ const App = () => {
                         )}
                       </div>
 
-                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
-                        <div className="flex flex-row space-x-3 px-7">
+                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                        <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                           <img
                             src={hours}
                             alt="hours"
-                            className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                            className="service-icon w-[40px] h-auto   transition-transform"
                           />
                           <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                             Hours
                           </h2>
                         </div>
                         {count && (
-                          <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                          <div className="px-7 py-4 mx-auto md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
                             <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
                               {count} hours
                             </h3>
@@ -231,19 +231,19 @@ const App = () => {
                         )}
                       </div>
 
-                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
-                        <div className="flex flex-row space-x-3 px-7">
+                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                        <div className="flex flex-row space-x-3 px-7 justify-center">
                           <img
                             src={crew}
                             alt="crew"
-                            className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                            className="service-icon w-auto h-auto    transition-transform"
                           />
                           <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                             Crew Workers
                           </h2>
                         </div>
                         {selectedTab && (
-                          <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                          <div className="px-7 py-4 mx-auto md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
                             <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
                               {selectedTab} Crew
                             </h3>
@@ -251,19 +251,19 @@ const App = () => {
                         )}
                       </div>
 
-                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7">
-                        <div className="flex flex-row space-x-3 px-7">
+                      <div className="flex w-full justify-between bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                        <div className="flex flex-row space-x-3 px-7 justify-center">
                           <img
                             src={frequency}
                             alt="frequency"
-                            className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                            className="service-icon w-auto h-auto   transition-transform"
                           />
                           <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                             frequency
                           </h2>
                         </div>
                         {selectedData && (
-                          <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
+                          <div className="px-7 py-4 mx-auto md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
                             <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
                               {selectedData}
                             </h3>
@@ -278,7 +278,7 @@ const App = () => {
                       <img
                         src={addressImage}
                         alt="address"
-                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                        className="service-icon w-auto h-auto    transition-transform"
                       />
                       <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Address
@@ -290,7 +290,7 @@ const App = () => {
                         <img
                           src={location}
                           alt="location"
-                          className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                          className="service-icon w-[20px] h-[33px] object-contain   transition-transform"
                         />
                       </div>
                       <div className="text-base sm:text-xl text-left text-[#123553]">
@@ -304,7 +304,7 @@ const App = () => {
                       <img
                         src={dateTime}
                         alt="date-time"
-                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                        className="service-icon w-auto h-auto   transition-transform"
                       />
                       <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Date and Time
@@ -317,7 +317,7 @@ const App = () => {
                           <img
                             src={dateImage}
                             alt="dateImage"
-                            className="service-icon w-[30px] h-[50px]  object-contain rounded-full  transition-transform"
+                            className="service-icon w-[30px] h-[50px]  object-contain  transition-transform"
                           />
                         </div>
                         {date && (
@@ -334,7 +334,7 @@ const App = () => {
                           <img
                             src={timeImage}
                             alt="timeImage"
-                            className="service-icon w-[30px] h-[30px] object-contain rounded-full  transition-transform"
+                            className="service-icon w-[30px] h-[30px] object-contain   transition-transform"
                           />
                         </div>
                         {time && (
@@ -353,7 +353,7 @@ const App = () => {
                       <img
                         src={contacts}
                         alt="contact information"
-                        className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                        className="service-icon w-auto h-auto    transition-transform"
                       />
                       <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
                         Contact Information
@@ -361,12 +361,12 @@ const App = () => {
                     </div>
                     <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
                     <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
-                      <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                        <div className="px-7">
+                      <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                        <div className="flex flex-row space-x-3 px-7 justify-center">
                           <img
                             src={nameImage}
                             alt="nameImage"
-                            className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                            className="service-icon w-[20px] h-[33px] object-contain   transition-transform"
                           />
                         </div>
                         {formData.fullName && (
@@ -378,16 +378,16 @@ const App = () => {
                         )}
                       </div>
 
-                      <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                        <div className="px-7">
+                      <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                        <div className="flex flex-row space-x-3 px-7 justify-center">
                           <img
                             src={emailImage}
                             alt="emailImage"
-                            className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                            className="service-icon w-[20px] h-[33px] object-contain   transition-transform"
                           />
                         </div>
                         {formData.email && (
-                          <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                          <div className="px-7 py-3 md:!mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
                             <h3 className="text-base sm:text-xl  text-[#123553]">
                               {formData.email}
                             </h3>
@@ -395,16 +395,16 @@ const App = () => {
                         )}
                       </div>
 
-                      <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                        <div className="px-7">
+                      <div className="w-full flex justify-between items-center pt-5 space-x-3 bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-3">
+                        <div className="flex flex-row space-x-3 px-7 justify-center">
                           <img
                             src={phoneImage}
                             alt="phoneImage"
-                            className="service-icon w-[20px] h-[20px] object-contain rounded-full  transition-transform"
+                            className="service-icon w-[20px] h-[20px] object-contain   transition-transform"
                           />
                         </div>
                         {formData.phoneNumber && (
-                          <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                          <div className="px-7 py-3 md:!mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
                             <h3 className="text-base sm:text-xl  text-[#123553]">
                               {formData.phoneNumber}
                             </h3>
@@ -431,8 +431,8 @@ const App = () => {
             </h3>
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
               <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
-                <div className="flex w-full justify-around bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={service}
                       alt="service"
@@ -442,65 +442,60 @@ const App = () => {
                       Service
                     </h2>
                   </div>
-                  <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
-                    <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
-                      {selectedContent}
-                    </h3>
+
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
+                    <h3>{selectedContent}</h3>
                   </div>
                 </div>
 
-                <div className="flex w-full justify-around bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={hours}
                       alt="hours"
-                      className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      className="service-icon w-[40px] h-auto  rounded-full  transition-transform"
                     />
                     <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                       Hours
                     </h2>
                   </div>
-                  <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
-                    <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
-                      {count} hours
-                    </h3>
+
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
+                    <h3>{count} hours</h3>
                   </div>
                 </div>
 
-                <div className="flex w-full justify-around bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={crew}
                       alt="crew"
-                      className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      className="service-icon w-[40px] h-auto  rounded-full  transition-transform"
                     />
                     <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                       Crew Workers
                     </h2>
                   </div>
-                  <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
-                    <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
-                      {selectedTab} Crew
-                    </h3>
+
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
+                    <h3>{selectedTab} Crew</h3>
                   </div>
                 </div>
 
-                <div className="flex w-full justify-around bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={frequency}
                       alt="frequency"
-                      className="service-icon w-auto h-auto  rounded-full  transition-transform"
+                      className="service-icon w-[40px] h-auto  rounded-full  transition-transform"
                     />
                     <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                       frequency
                     </h2>
                   </div>
 
-                  <div className="px-7 mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-[259px]">
-                    <h3 className="text-base sm:text-xl  text-[#123553] pl-4">
-                      {selectedData}
-                    </h3>
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
+                    <h3>{selectedData}</h3>
                   </div>
                 </div>
               </div>
@@ -544,8 +539,8 @@ const App = () => {
                 </h1>
               </div>
               <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
-              <div className="text-left flex flex-row pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
-                <div className="w-fit flex justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10">
+              <div className="text-left flex flex-col lg:flex-row pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
+                <div className="w-fit flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10 mb-10">
                   <div className="px-7">
                     <img
                       src={dateImage}
@@ -560,16 +555,16 @@ const App = () => {
                   </div>
                 </div>
 
-                <div className="w-fit flex justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10">
-                  <div className="px-7">
+                <div className="md:w-fit w-full flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10">
+                  <div className="px-7 mb-7 md:mb-0">
                     <img
                       src={timeImage}
                       alt="timeImage"
-                      className="service-icon w-[30px] h-[30px] object-contain rounded-full  transition-transform"
+                      className="service-icon w-auto md:w-[50px] h-[30px] object-contain rounded-full  transition-transform"
                     />
                   </div>
 
-                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-full">
                     <h3 className="text-base sm:text-xl  text-[#123553]">
                       {dayjs(time).format("hh:mm A")}
                     </h3>
@@ -591,68 +586,63 @@ const App = () => {
               </div>
               <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
               <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
-                <div className="w-full flex justify-around items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 items-center px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={nameImage}
                       alt="nameImage"
-                      className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                       className="service-icon w-auto h-auto transition-transform"
                     />
                     <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                       Name
                     </h2>
                   </div>
 
-                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3 className="text-base sm:text-xl  text-[#123553]">
-                      {formData.fullName}
-                    </h3>
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                    <h3>{formData.fullName}</h3>
                   </div>
                 </div>
 
-                <div className="w-full flex justify-around items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 items-center px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={emailImage}
                       alt="emailImage"
-                      className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                       className="service-icon w-auto h-auto transition-transform"
                     />
                     <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                       Email
                     </h2>
                   </div>
 
-                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3 className="text-base sm:text-xl  text-[#123553]">
-                      {formData.email}
-                    </h3>
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                    <h3>{formData.email}</h3>
                   </div>
                 </div>
 
-                <div className="w-full flex justify-around items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                  <div className="flex flex-row space-x-3 items-center px-7">
+                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
+                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
                     <img
                       src={phoneImage}
                       alt="phoneImage"
-                      className="service-icon w-[20px] h-[20px] object-contain   transition-transform"
+                      className="service-icon w-auto h-auto transition-transform"
                     />
                     <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
                       phone number
                     </h2>
                   </div>
-                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3 className="text-base sm:text-xl  text-[#123553]">
-                      {formData.phoneNumber}
-                    </h3>
+
+                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                    <h3>{formData.phoneNumber}</h3>
                   </div>
                 </div>
               </div>
             </div>
             <div className="py-10">
               <a href="https://mammutfm.ch/contact-us/">
-              <button className="bg-[#336985] py-7 px-16 font-segoe font-semibold text-2xl rounded-xl text-white border border-solid border-[#707070] shadow-lg w-full">
-                CONTACT US NOW
-              </button>
+                <button className="bg-[#336985] py-7 px-16 font-segoe font-semibold text-2xl rounded-xl text-white border border-solid border-[#707070] shadow-lg w-full">
+                  CONTACT US NOW
+                </button>
               </a>
             </div>
           </div>

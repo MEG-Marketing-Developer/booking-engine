@@ -43,7 +43,7 @@ function SelectServices({ onServicesSelected }) {
       <Carousel className="w-full border rounded-3xl border-solid border-[#113553] sm:w-[80%] sm:mx-24 shadow-custom-light">
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem className="basis-[30%]" key={item.id}>
+            <CarouselItem className="basis-[50%] md:basis-[30%]" key={item.id}>
               <li
                 key={item.id}
                 className={`web-list-item w-full text-base sm:text-xl rounded-lg ${

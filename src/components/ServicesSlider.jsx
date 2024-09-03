@@ -37,7 +37,7 @@ function ServicesSlider({ onDataSelected }) {
       <Carousel className="w-[75%] mx-auto carousel-container">
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem className="basis-[16%]" key={item.id}>
+            <CarouselItem className="basis-[49%] md:basis-[16%]" key={item.id}>
               <li
                 key={item.id}
                 className={`web-list-service font-segoe h-[100px] bg-white w-full rounded-lg border border-solid border-[#113553] shadow-custom-light ${

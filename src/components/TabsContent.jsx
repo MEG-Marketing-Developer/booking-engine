@@ -9,7 +9,7 @@ function TabsContent({ onTabChange }) {
   };
 
   return (
-    <div className="w-full text-left mt-10 bg-[#E1E7E9] py-7 my-10 flex flex-row justify-around items-center">
+    <div className="w-full text-left mt-10 bg-[#E1E7E9] py-7 my-10 flex flex-col space-y-10 md:space-y-0 md:flex-row justify-around items-center">
       <div className="flex flex-row space-x-3">
         <img
           src={crew}
@@ -29,7 +29,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="1"
             className={cn(
-              "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
+              "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
             )}
           >
             One
@@ -37,7 +37,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="2"
             className={cn(
-              "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
+              "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
             )}
           >
             Two
@@ -45,7 +45,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="3"
             className={cn(
-              "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
+              "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
             )}
           >
             Three
@@ -53,7 +53,7 @@ function TabsContent({ onTabChange }) {
           <TabsTrigger
             value="4"
             className={cn(
-              "bg-white font-normal text-lg text-[#286380]  p-2  data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
+              "bg-white font-normal text-lg text-[#286380]  p-2  data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
             )}
           >
             Four

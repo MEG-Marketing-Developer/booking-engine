@@ -418,7 +418,7 @@ const App = () => {
             </div>
           </>
         ) : (
-          <div className="final-component bg-white w-[90%] sm:w-[95%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-center">
+          <div className="final-component bg-white w-[90%] sm:w-[85%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-center">
             <div className="pt-16 pb-6">
               <img
                 src={fireworks}

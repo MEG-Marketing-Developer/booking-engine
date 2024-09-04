@@ -18,7 +18,7 @@ li.web-list-service{
   }
 }
 .web-list-item.active .service-icon-container {
-  background-color: #184f6e;
+  background-color: #205164;
 }
 .web-list-item.active .service-icon-container .service-icon {
   filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%)

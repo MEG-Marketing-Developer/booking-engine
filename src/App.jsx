@@ -132,15 +132,15 @@ const App = () => {
     <>
       <Header />
 
-      <main className="bg-custom-bg bg-cover bg-center py-24">
+      <main className="bg-[#205164] bg-cover bg-center py-24">
         {!isCompleted ? (
           <>
             {/* content section  */}
-            <div className="bg-white w-[90%] sm:w-[95%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-start">
+            <div className="bg-white w-[90%] sm:w-[85%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-start">
               {/* booking section  */}
               <div className="flex flex-col xl:flex-row  justify-between pt-5 sm:pt-0 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
                 <div className="mx-auto sm:w-2/3 md:pr-0 sm:pl-0 w-full  flex-2 p-5">
-                  <h1 className="text-4xl uppercase text-[#1D506A] font-alexandria font-bold pb-16">
+                  <h1 className="text-4xl uppercase text-[#1D506A] font-alexandria font-[500] pb-16 pt-8">
                     Quick Booking
                   </h1>
                   <Steps current={current} className="sm:px-24">
@@ -178,12 +178,13 @@ const App = () => {
                     )}
                   </div>
                 </div>
-                <div className="flex-1 space-y-8 md:!ml-0 bg-[#E4ECEF] rounded-tr-3xl rounded-br-3xl border-l-2 border-[#286380]">
+                <div className="flex-1  space-y-8 md:!ml-0 bg-[#E4ECEF] rounded-tr-3xl rounded-br-3xl border-l-2 border-[#286380]">
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
                     <CardTitle
                       imageSrc={booking}
                       imageAlt="booking-details"
                       titleCard="Booking Details"
+                      customJusticfyTitle="start"
                     />
                     <div className="border-b-2 border-solid border-[#286380] w-full" />
                     {/* {selectedContent && ( */}
@@ -239,6 +240,7 @@ const App = () => {
                       imageSrc={addressImage}
                       imageAlt="address"
                       titleCard="Address"
+                      customJusticfyTitle="start"
                     />
                     <div className="border-b-2 border-solid border-[#286380] w-full" />
                     <div className="w-full flex justify-between items-center space-x-3 bg-[#D0E3EB] py-1">
@@ -260,6 +262,7 @@ const App = () => {
                       imageSrc={dateTime}
                       imageAlt="date-time"
                       titleCard="Date and Time"
+                      customJusticfyTitle="start"
                     />
                     <div className="border-b-2 border-solid border-[#286380] w-full" />
                     <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
@@ -292,6 +295,7 @@ const App = () => {
                       imageSrc={contacts}
                       imageAlt="contact-information"
                       titleCard="Contact Information"
+                      customJusticfyTitle="start"
                     />
                     <div className="border-b-2 border-solid border-[#286380] w-full" />
                     <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
@@ -339,10 +343,10 @@ const App = () => {
               <img
                 src={fireworks}
                 alt="fireworks"
-                className="w-auto h-auto object-contain transition-transform"
+                className="w-16 h-16 object-contain transition-transform"
               />
             </div>
-            <h3 className="text-base sm:text-3xl font-alexandria font-bold text-[#123553]">
+            <h3 className="text-lg sm:text-3xl font-alexandria font-bold text-[#123553]">
               CONGRATIOLATIONS
             </h3>
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
@@ -394,17 +398,14 @@ const App = () => {
             </div>
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className="flex flex-row space-x-3 px-7 w-full justify-center pt-10">
-                <img
-                  src={addressImage}
-                  alt="address"
-                  className="service-icon w-auto h-auto  rounded-full  transition-transform"
-                />
-                <h1 className="font-alexandria text-base sm:text-3xl text-left my-3 text-[#1D506A] font-normal uppercase">
-                  Address
-                </h1>
-              </div>
-              <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+            <div className=" w-full pt-10" />
+              <CardTitle
+                      imageSrc={addressImage}
+                      imageAlt="address"
+                      titleCard="Address"
+                      customJusticfyTitle="center"
+                    />
+              <div className="border-b-2 border-solid border-[#286380] w-full" />
               <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
                 <div className="px-7">
                   <img
@@ -420,18 +421,17 @@ const App = () => {
             </div>
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className="flex flex-row space-x-3 px-7 justify-center w-full pt-10">
-                <img
-                  src={dateTime}
-                  alt="date-time"
-                  className="service-icon w-auto h-auto  rounded-full  transition-transform"
-                />
-                <h1 className="font-alexandria text-base sm:text-3xl text-left my-3 text-[#1D506A] font-normal uppercase">
-                  Date and Time
-                </h1>
-              </div>
-              <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
-              <div className="text-left flex flex-col lg:flex-row pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
+
+             <div className=" w-full pt-10" />
+
+              <CardTitle
+                      imageSrc={dateTime}
+                      imageAlt="date-time"
+                      titleCard="Date and Time"
+                      customJusticfyTitle="center"
+                    />
+              <div className="border-b-2 border-solid border-[#286380] w-full" />
+              <div className="text-left flex flex-col lg:flex-row pt-4 md:pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
                 <div className="w-fit flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10 mb-10">
                   <div className="px-7">
                     <img
@@ -466,18 +466,15 @@ const App = () => {
             </div>
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className="flex flex-row space-x-3 px-7 w-full justify-center pt-10">
-                <img
-                  src={contacts}
-                  alt="contact information"
-                  className="service-icon w-auto h-auto  rounded-full  transition-transform"
-                />
-                <h1 className="font-alexandria text-base sm:text-3xl text-left my-3 text-[#1D506A] font-normal uppercase">
-                  Contact Information
-                </h1>
-              </div>
-              <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
-              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
+            <div className=" w-full pt-10" />
+              <CardTitle
+                      imageSrc={contacts}
+                      imageAlt="contact information"
+                      titleCard="Contact Information"
+                      customJusticfyTitle="center"
+                    />
+              <div className="border-b-2 border-solid border-[#286380] w-full" />
+              <div className="text-left flex flex-col w-full items-start justify-around px-0 md:px-0 space-y-3 rounded-3xl ">
                 <SideBarCard
                   cardImage={nameImage}
                   imageAlt="nameImage"

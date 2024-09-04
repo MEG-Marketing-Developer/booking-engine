@@ -40,10 +40,10 @@ function SelectServices({ onServicesSelected }) {
 
   return (
     <>
-      <Carousel className="w-full border rounded-3xl border-solid border-[#113553] sm:w-[80%] sm:mx-24 shadow-custom-light">
+      <Carousel className="w-full border rounded-3xl border-solid border-[#205164] sm:w-[80%] sm:mx-24 shadow-custom-light">
         <CarouselContent>
           {items.map((item, index) => (
-            <CarouselItem className="basis-[50%] md:basis-[30%]" key={item.id}>
+            <CarouselItem className="basis-[50%] md:basis-[31%]" key={item.id}>
               <li
                 key={item.id}
                 className={`web-list-item w-full text-base sm:text-xl rounded-lg ${
@@ -59,7 +59,7 @@ function SelectServices({ onServicesSelected }) {
                       className="service-icon w-20 h-12  rounded-full  hover:scale-105 transition-transform filter-custom-blue"
                     />
                   </div>
-                  <h3 className="text-base sm:text-xl mt-2 text-[#123553]">
+                  <h3 className="text-base sm:text-xl mt-2 text-[#205164] font-alexandria font-[400] uppercase">
                     {item.value}
                   </h3>
                 </div>

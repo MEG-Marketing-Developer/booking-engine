@@ -31,7 +31,7 @@ function ServicesSlider({ onDataSelected }) {
 
   return (
     <div className="bg-[#E1E7E9] py-7 my-10">
-      <h1 className="text-base sm:text-3xl my-8 text-[#1D506A] font-bold text-center font-alexandria uppercase ">
+      <h1 className="text-base sm:text-3xl my-8 text-[#205164] font-[500] text-center font-alexandria uppercase ">
         Select your booking frequency
       </h1>
       <Carousel className="w-[75%] mx-auto carousel-container">
@@ -40,7 +40,7 @@ function ServicesSlider({ onDataSelected }) {
             <CarouselItem className="basis-[49%] md:basis-[16%]" key={item.id}>
               <li
                 key={item.id}
-                className={`web-list-service font-alexandria h-[100px] bg-white w-full rounded-lg border border-solid border-[#113553] shadow-custom-light ${
+                className={`text-[#205164] web-list-service font-alexandria h-[100px] bg-white w-full rounded-lg border border-solid border-[#113553] shadow-custom-light ${
                   index === activeIndex ? "active" : ""
                 }`}
                 onClick={() => handleClick(index)}

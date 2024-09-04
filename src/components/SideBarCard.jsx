@@ -31,11 +31,11 @@ function SideBarCard({
         </div>
         {condtion && (
           <div
-            className={`px-8 py-1 md:!mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md ${
+            className={`px-8 py-1 md:!mr-7 rounded-lg flex justify-center items-center bg-[#205164] border border-[#707070] shadow-md ${
               customWidth ? "w-fit" : "w-[200px]"
             }`}
           >
-            <h3 className="text-base font-alexandria font-[400] text-[#123553]">
+            <h3 className="text-base font-alexandria font-[400] text-[#E4ECEF]">
               {cardContent}
             </h3>
           </div>

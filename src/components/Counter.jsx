@@ -5,7 +5,7 @@ import hours from "../../public/images/hours.svg";
 function Counter({ count, increment, decrement, inputChange }) {
   return (
     <>
-      <div className="flex flex-row space-x-3 items-center justify-around pl-0 p-4 mt-0 bg-[#E1E7E9] py-7 my-10">
+      <div className="flex flex-col space-y-5 md:flex-row space-x-3 items-center justify-around pl-0 p-4 mt-0 bg-[#E1E7E9] py-7 my-10">
         <div className="flex flex-row space-x-3">
           <img
             src={hours}

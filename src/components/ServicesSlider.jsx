@@ -45,8 +45,8 @@ function ServicesSlider({ onDataSelected }) {
                 }`}
                 onClick={() => handleClick(index)}
               >
-                <span className="text-base">{item.value1}</span>
-                <span className="text-xl">{item.value2}</span>
+                <span className="text-sm">{item.value1}</span>
+                <span className="text-base">{item.value2}</span>
                 
               </li>
             </CarouselItem>

@@ -16,7 +16,7 @@ function TabsContent({ onTabChange }) {
           alt="crew"
           className="service-icon w-14 h-12  rounded-full  transition-transform"
         />
-        <h1 className="font-alexandria text-base sm:text-xl text-left my-3 text-[#1D506A] font-normal">
+        <h1 className="font-alexandria text-base sm:text-lg text-left my-3 text-[#1D506A] font-normal">
           How Many Crew?
         </h1>
       </div>
@@ -25,7 +25,7 @@ function TabsContent({ onTabChange }) {
         defaultValue=""
         className={cn("relative w-fit")}
       >
-        <TabsList>
+        <TabsList className="grid md:block grid-cols-2 grid-rows-2 gap-4 w-full h-full p-4">
           <TabsTrigger
             value="1"
             className={cn(

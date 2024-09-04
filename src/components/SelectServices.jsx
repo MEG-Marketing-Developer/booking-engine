@@ -59,7 +59,7 @@ function SelectServices({ onServicesSelected }) {
                       className="service-icon w-20 h-12  rounded-full  hover:scale-105 transition-transform filter-custom-blue"
                     />
                   </div>
-                  <h3 className="text-base sm:text-xl mt-2 text-[#205164] font-alexandria font-[400] uppercase">
+                  <h3 className="text-base  mt-2 text-[#205164] font-alexandria font-[400] uppercase">
                     {item.value}
                   </h3>
                 </div>

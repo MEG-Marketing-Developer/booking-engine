@@ -26,6 +26,7 @@ import fireworks from "../public/images/fireworks.svg";
 import dayjs from "dayjs";
 import { Steps, Button, message } from "antd";
 import SideBarCard from "./components/SideBarCard";
+import CardTitle from "./components/CardTitle";
 
 const { Step } = Steps;
 
@@ -139,7 +140,7 @@ const App = () => {
               {/* booking section  */}
               <div className="flex flex-col xl:flex-row  justify-between pt-5 sm:pt-0 space-y-6 sm:space-y-0 sm:space-x-6 w-full">
                 <div className="mx-auto sm:w-2/3 md:pr-0 sm:pl-0 w-full  flex-2 p-5">
-                  <h1 className="text-4xl uppercase text-[#1D506A] font-segoe font-bold pb-16">
+                  <h1 className="text-4xl uppercase text-[#1D506A] font-alexandria font-bold pb-16">
                     Quick Booking
                   </h1>
                   <Steps current={current} className="sm:px-24">
@@ -179,17 +180,12 @@ const App = () => {
                 </div>
                 <div className="flex-1 space-y-8 md:!ml-0 bg-[#E4ECEF] rounded-tr-3xl rounded-br-3xl border-l-2 border-[#286380]">
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
-                    <div className="flex flex-row space-x-3 px-7">
-                      <img
-                        src={booking}
-                        alt="booking-details"
-                        className="service-icon w-auto h-auto    transition-transform"
-                      />
-                      <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
-                        Booking Details
-                      </h1>
-                    </div>
-                    <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                    <CardTitle
+                      imageSrc={booking}
+                      imageAlt="booking-details"
+                      titleCard="Booking Details"
+                    />
+                    <div className="border-b-2 border-solid border-[#286380] w-full" />
                     {/* {selectedContent && ( */}
                     <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
                       <SideBarCard
@@ -199,7 +195,8 @@ const App = () => {
                         condtion={selectedContent}
                         cardContent={selectedContent}
                         customWidth={false}
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
 
                       <SideBarCard
@@ -209,7 +206,8 @@ const App = () => {
                         condtion={count}
                         cardContent={`${count} hours`}
                         customWidth={false}
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
 
                       <SideBarCard
@@ -219,7 +217,8 @@ const App = () => {
                         condtion={selectedTab}
                         cardContent={`${selectedTab} Crew`}
                         customWidth={false}
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
 
                       <SideBarCard
@@ -229,49 +228,40 @@ const App = () => {
                         condtion={selectedData}
                         cardContent={selectedData}
                         customWidth={false}
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
                     </div>
                   </div>
 
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-                    <div className="flex flex-row space-x-3 px-7">
-                      <img
-                        src={addressImage}
-                        alt="address"
-                        className="service-icon w-auto h-auto    transition-transform"
-                      />
-                      <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
-                        Address
-                      </h1>
-                    </div>
-                    <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                    <CardTitle
+                      imageSrc={addressImage}
+                      imageAlt="address"
+                      titleCard="Address"
+                    />
+                    <div className="border-b-2 border-solid border-[#286380] w-full" />
                     <div className="w-full flex justify-between items-center space-x-3 bg-[#D0E3EB] py-1">
                       <div className="px-7">
                         <img
                           src={location}
                           alt="location"
-                          className="service-icon w-10 h-8 object-contain transition-transform"
+                          className="service-icon w-8 h-6 object-contain transition-transform"
                         />
                       </div>
-                      <div className="text-base font-segoe font-semibold text-left text-[#123553]">
+                      <div className="text-base font-alexandria font-[400] text-left text-[#123553]">
                         <h3>{address}</h3>
                       </div>
                     </div>
                   </div>
 
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-                    <div className="flex flex-row space-x-3 px-7">
-                      <img
-                        src={dateTime}
-                        alt="date-time"
-                        className="service-icon w-auto h-auto   transition-transform"
-                      />
-                      <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
-                        Date and Time
-                      </h1>
-                    </div>
-                    <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                    <CardTitle
+                      imageSrc={dateTime}
+                      imageAlt="date-time"
+                      titleCard="Date and Time"
+                    />
+                    <div className="border-b-2 border-solid border-[#286380] w-full" />
                     <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
                       <SideBarCard
                         cardImage={dateImage}
@@ -280,7 +270,8 @@ const App = () => {
                         condtion={date}
                         cardContent={dayjs(date).format("MMM D YYYY")}
                         customWidth
-                        customJusticfy={false}
+                        customJusticfy="start"
+                        contentWidth
                       />
 
                       <SideBarCard
@@ -290,23 +281,19 @@ const App = () => {
                         condtion={time}
                         cardContent={dayjs(time).format("hh:mm A")}
                         customWidth
-                        customJusticfy={false}
+                        customJusticfy="start"
+                        contentWidth
                       />
                     </div>
                   </div>
 
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-                    <div className="flex flex-row space-x-3 px-7">
-                      <img
-                        src={contacts}
-                        alt="contact information"
-                        className="service-icon w-auto h-auto    transition-transform"
-                      />
-                      <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
-                        Contact Information
-                      </h1>
-                    </div>
-                    <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
+                    <CardTitle
+                      imageSrc={contacts}
+                      imageAlt="contact-information"
+                      titleCard="Contact Information"
+                    />
+                    <div className="border-b-2 border-solid border-[#286380] w-full" />
                     <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
                       <SideBarCard
                         cardImage={nameImage}
@@ -315,7 +302,8 @@ const App = () => {
                         condtion={formData.fullName}
                         cardContent={formData.fullName}
                         customWidth
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
 
                       <SideBarCard
@@ -325,17 +313,19 @@ const App = () => {
                         condtion={formData.email}
                         cardContent={formData.email}
                         customWidth
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
 
                       <SideBarCard
                         cardImage={phoneImage}
                         imageAlt="phoneImage"
-                        title="Phone Number"
+                        title="Phone"
                         condtion={formData.phoneNumber}
                         cardContent={formData.phoneNumber}
                         customWidth
-                        customJusticfy
+                        customJusticfy="between"
+                        contentWidth
                       />
                     </div>
                   </div>
@@ -352,79 +342,54 @@ const App = () => {
                 className="w-auto h-auto object-contain transition-transform"
               />
             </div>
-            <h3 className="text-base sm:text-3xl font-segoe font-bold text-[#123553]">
+            <h3 className="text-base sm:text-3xl font-alexandria font-bold text-[#123553]">
               CONGRATIOLATIONS
             </h3>
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
               <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
-                
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={service}
-                      alt="service"
-                      className="service-icon w-auto h-auto  rounded-full  transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      Service
-                    </h2>
-                  </div>
+                <SideBarCard
+                  cardImage={service}
+                  imageAlt="service"
+                  title="Service"
+                  condtion={selectedContent}
+                  cardContent={selectedContent}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
 
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
-                    <h3>{selectedContent}</h3>
-                  </div>
-                </div>
+                <SideBarCard
+                  cardImage={hours}
+                  imageAlt="hours"
+                  title="Hours"
+                  condtion={count}
+                  cardContent={`${count} hours`}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
 
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={hours}
-                      alt="hours"
-                      className="service-icon w-[40px] h-auto  rounded-full  transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      Hours
-                    </h2>
-                  </div>
+                <SideBarCard
+                  cardImage={crew}
+                  imageAlt="crew"
+                  title="Crew Workers"
+                  condtion={selectedTab}
+                  cardContent={`${selectedTab} Crew`}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
 
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
-                    <h3>{count} hours</h3>
-                  </div>
-                </div>
-
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={crew}
-                      alt="crew"
-                      className="service-icon w-[40px] h-auto  rounded-full  transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      Crew Workers
-                    </h2>
-                  </div>
-
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
-                    <h3>{selectedTab} Crew</h3>
-                  </div>
-                </div>
-
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={frequency}
-                      alt="frequency"
-                      className="service-icon w-[40px] h-auto  rounded-full  transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      frequency
-                    </h2>
-                  </div>
-
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-auto md:w-[259px]">
-                    <h3>{selectedData}</h3>
-                  </div>
-                </div>
+                <SideBarCard
+                  cardImage={frequency}
+                  imageAlt="frequency"
+                  title="frequency"
+                  condtion={selectedData}
+                  cardContent={selectedData}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
               </div>
             </div>
 
@@ -435,7 +400,7 @@ const App = () => {
                   alt="address"
                   className="service-icon w-auto h-auto  rounded-full  transition-transform"
                 />
-                <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                <h1 className="font-alexandria text-base sm:text-3xl text-left my-3 text-[#1D506A] font-normal uppercase">
                   Address
                 </h1>
               </div>
@@ -461,7 +426,7 @@ const App = () => {
                   alt="date-time"
                   className="service-icon w-auto h-auto  rounded-full  transition-transform"
                 />
-                <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                <h1 className="font-alexandria text-base sm:text-3xl text-left my-3 text-[#1D506A] font-normal uppercase">
                   Date and Time
                 </h1>
               </div>
@@ -507,67 +472,49 @@ const App = () => {
                   alt="contact information"
                   className="service-icon w-auto h-auto  rounded-full  transition-transform"
                 />
-                <h1 className="font-segoe text-base sm:text-3xl text-left my-3 text-[#1D506A] font-semibold uppercase">
+                <h1 className="font-alexandria text-base sm:text-3xl text-left my-3 text-[#1D506A] font-normal uppercase">
                   Contact Information
                 </h1>
               </div>
               <div className="border-b-2 border-solid border-[#286380] w-full pt-5" />
               <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 space-y-3 rounded-3xl ">
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={nameImage}
-                      alt="nameImage"
-                      className="service-icon w-auto h-auto transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      Name
-                    </h2>
-                  </div>
+                <SideBarCard
+                  cardImage={nameImage}
+                  imageAlt="nameImage"
+                  title="Name"
+                  condtion={formData.fullName}
+                  cardContent={formData.fullName}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
 
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3>{formData.fullName}</h3>
-                  </div>
-                </div>
+                <SideBarCard
+                  cardImage={emailImage}
+                  imageAlt="emailImage"
+                  title="Email"
+                  condtion={formData.email}
+                  cardContent={formData.email}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
 
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={emailImage}
-                      alt="emailImage"
-                      className="service-icon w-auto h-auto transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      Email
-                    </h2>
-                  </div>
-
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3>{formData.email}</h3>
-                  </div>
-                </div>
-
-                <div className="flex w-full justify-evenly bg-[#D0E3EB] py-7 flex-col md:flex-row space-y-2">
-                  <div className="flex flex-row space-x-3 px-7 justify-center items-center">
-                    <img
-                      src={phoneImage}
-                      alt="phoneImage"
-                      className="service-icon w-auto h-auto transition-transform"
-                    />
-                    <h2 className="font-segoe text-base text-left my-3 text-[#1D506A] font-semibold uppercase">
-                      phone number
-                    </h2>
-                  </div>
-
-                  <div className="px-7 py-4 mx-auto md:mx-0 md:mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3>{formData.phoneNumber}</h3>
-                  </div>
-                </div>
+                <SideBarCard
+                  cardImage={phoneImage}
+                  imageAlt="phoneImage"
+                  title="phone"
+                  condtion={formData.phoneNumber}
+                  cardContent={formData.phoneNumber}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
               </div>
             </div>
             <div className="py-10">
               <a href="https://mammutfm.ch/contact-us/">
-                <button className="bg-[#336985] py-7 px-16 font-segoe font-semibold text-2xl rounded-xl text-white border border-solid border-[#707070] shadow-lg w-full">
+                <button className="bg-[#336985] py-7 px-16 font-alexandria font-normal text-2xl rounded-xl text-white border border-solid border-[#707070] shadow-lg w-full">
                   CONTACT US NOW
                 </button>
               </a>

@@ -12,13 +12,13 @@ function Counter({ count, increment, decrement, inputChange }) {
             alt="hours"
             className="service-icon w-14 h-12  rounded-full  transition-transform"
           />
-          <h1 className="font-segoe text-base sm:text-xl text-left my-3 text-[#1D506A] font-semibold">
+          <h1 className="font-alexandria text-base sm:text-xl text-left my-3 text-[#1D506A] font-normal">
             Hours
           </h1>
         </div>
         <div className="flex justify-around">
           <button
-            className="px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-segoe"
+            className="px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-alexandria"
             onClick={decrement}
           >
             -
@@ -38,7 +38,7 @@ function Counter({ count, increment, decrement, inputChange }) {
             }}
           />
           <button
-            className="px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-segoe"
+            className="px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-alexandria"
             onClick={increment}
           >
             +

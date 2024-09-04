@@ -23,7 +23,7 @@ const Footer = () => {
                 </div>
                 <div className="sm:w-2/3 w-full flex text-sm mt-6 lg:mt-0  sm:space-y-0">
                     <ul className="text-white list-none p-0 font-thin flex flex-col text-left w-full">
-                        <li className="inline-block py-2 px-3 text-white uppercase font-semibold txt-lg sm:text-2xl tracking-wide">
+                        <li className="inline-block py-2 px-3 text-white uppercase font-normal txt-lg sm:text-2xl tracking-wide">
                             Quick Links
                         </li>
                         <li>
@@ -68,7 +68,7 @@ const Footer = () => {
                         </li>
                     </ul>
                     <ul className="text-gray-700 list-none p-0 font-thin flex flex-col text-left w-full">
-                        <li className="inline-block py-2 px-3 text-white uppercase font-semibold txt-lg sm:text-2xl tracking-wide">
+                        <li className="inline-block py-2 px-3 text-white uppercase font-normal txt-lg sm:text-2xl tracking-wide">
                             Our Service
                         </li>
                         <li>

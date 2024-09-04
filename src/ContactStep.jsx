@@ -67,7 +67,7 @@ function ContactStep({ onInputChange }) {
 
   return (
     <>
-      <h1 className="text-base sm:text-3xl my-8 text-[#1D506A] font-bold text-center font-segoe uppercase py-10">
+      <h1 className="text-base sm:text-3xl my-8 text-[#1D506A] font-bold text-center font-alexandria uppercase py-10">
         CONTACT DETAILS
       </h1>
       <form className="space-y-10 pb-16">

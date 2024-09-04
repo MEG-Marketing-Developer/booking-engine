@@ -17,11 +17,12 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        segoe: ['Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'],
+      fontFamily: {       
+        alexandria: ['Alexandria', 'sans-serif'],
       },
       filter: {
         'custom-blue': 'invert(15%) sepia(24%) saturate(3714%) hue-rotate(172deg) brightness(90%) contrast(101%)',        
+        'custom-white':' brightness(0) saturate(100%) invert(100%) sepia(91%) saturate(374%) hue-rotate(173deg) brightness(99%) contrast(90%)',
       },
       boxShadow: {
         'custom-light': '0px 10px 15px -3px rgba(0,0,0,0.1)',        

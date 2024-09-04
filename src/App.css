@@ -23,13 +23,13 @@ button.ant-btn.css-98ntnt.ant-btn-default {
   margin-top: 3%;
   display: block;
   height: auto;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Alexandria", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
 }
 span.ant-steps-icon {
   font-size: 17px;
   color: #1d506a !important;
-  font-family: "Segoe UI";
+  font-family: "Alexandria";
   font-weight: 600;
 }
 
@@ -48,7 +48,7 @@ span.ant-steps-icon {
   color: #1d506a;
 }
 :where(.css-dev-only-do-not-override-98ntnt).ant-steps .ant-steps-item-title {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Alexandria", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 21px;
   font-weight: 600;
 }
@@ -58,7 +58,7 @@ span.ant-steps-icon {
   > .ant-steps-item-content
   > .ant-steps-item-title {
   color: #1d506a;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Alexandria", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 21px;
 }
 .ant-steps .ant-steps-item-finish .ant-steps-item-icon {
@@ -89,12 +89,12 @@ span.ant-steps-icon {
 .timePickerClassName input {
   color: #336985;
   font-weight: bold;
-  font-family: "Segoe UI";
+  font-family: "Alexandria";
 }
 .datePickerClassName .MuiPickersCalendarHeader-label {
   color: #1d506a;
   font-weight: bold;
-  font-family: "Segoe UI";
+  font-family: "Alexandria";
 }
 .datePickerClassName .MuiDayCalendar-header {
   background-color: #f5f5f5;
@@ -103,7 +103,7 @@ span.ant-steps-icon {
   color: #707070;
   font-size: 1rem;
   font-weight: bold;
-  font-family: "Segoe UI";
+  font-family: "Alexandria";
 }
 .MuiInputAdornment-root.MuiInputAdornment-positionEnd
   button.MuiButtonBase-root.MuiIconButton-root {

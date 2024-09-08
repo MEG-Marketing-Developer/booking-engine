@@ -29,7 +29,7 @@ function Counter({ count, increment, decrement, inputChange }) {
             type="number"
             value={count}
             onChange={inputChange}
-            min="2"
+            min="4"
             max="10"
             onKeyUp={(event) => {
               if (!/[0-9]/.test(event.key)) {

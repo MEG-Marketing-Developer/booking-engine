@@ -14,7 +14,7 @@ export const ServiceStep = ({
   const [selectedData, setSelectedData] = useState(null);
   const [selectedService, setSelectedServices] = useState(null);
 
-  const [count, setCount] = useState(2);
+  const [count, setCount] = useState(4);
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -33,8 +33,8 @@ export const ServiceStep = ({
 
   const handleCounter = (e) => {
     let newCount = parseInt(e.target.value);
-    if (isNaN(newCount) || newCount < 2) {
-      newCount = 2;
+    if (isNaN(newCount) || newCount < 4) {
+      newCount = 4;
     } else if (newCount > 10) {
       newCount = 10;
     }
@@ -51,7 +51,7 @@ export const ServiceStep = ({
   };
 
   const decrement = () => {
-    if (count > 2) {
+    if (count > 4) {
       const newCount = count - 1;
       setCount(newCount);
       counter(newCount);

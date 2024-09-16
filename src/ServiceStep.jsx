@@ -9,12 +9,18 @@ export const ServiceStep = ({
   selectTab,
   contentSelected,
   serviceSlected,
+  SubSelected,
 }) => {
   const [selectedTab, setSelectedTab] = useState("1");
   const [selectedData, setSelectedData] = useState(null);
   const [selectedService, setSelectedServices] = useState(null);
-
+  const [selectedSubServices, setSelectedSubServices] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(4);
+ 
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
+  };
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
@@ -24,6 +30,11 @@ export const ServiceStep = ({
   const hundleServicesSelected = (newData) => {
     setSelectedServices(newData);
     contentSelected(newData);
+  };
+
+  const hundleSubServicesSelected = (newSub) => {
+    setSelectedSubServices(newSub);
+    SubSelected(newSub);
   };
 
   const handleTabChange = (newTab) => {
@@ -57,18 +68,40 @@ export const ServiceStep = ({
       counter(newCount);
     }
   };
+  console.log(selectedService)
 
   return (
     <>
-      <SelectServices onServicesSelected={hundleServicesSelected} />
+      <SelectServices
+        onServicesSelected={hundleServicesSelected}
+        onSubServicesSelected={hundleSubServicesSelected}
+      />
+       {selectedService === "Deep Cleaning" && selectedSubServices !== null &&(
       <ServicesSlider onDataSelected={hundleDataSelected} />
+    )}
+       {selectedService !== null  &&(
       <TabsContent onTabChange={handleTabChange} />
+       )}
+         {selectedService !== null  &&(
       <Counter
         inputChange={handleCounter}
         count={count}
         increment={increment}
         decrement={decrement}
       />
+         )}
+          {selectedService !== null  &&(
+       <div>
+      <label>
+        <input
+          type="checkbox"
+          checked={isChecked}
+          onChange={handleCheckboxChange}
+        />
+       Let Expert Decide
+      </label>      
+    </div>
+    )}
     </>
   );
 };

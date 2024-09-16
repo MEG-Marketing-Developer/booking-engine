@@ -33,8 +33,9 @@ const { Step } = Steps;
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("");
   const [selectedData, setSelectedData] = useState(null);
-  const [count, setCount] = useState("2");
+  const [count, setCount] = useState("4");
   const [selectedContent, setSelectedContent] = useState(null);
+  const [selectedSub, setSelectedSub] = useState(null);
   const [current, setCurrent] = useState(0);
   const [address, setAddress] = useState("");
   const [date, setDate] = useState(null);
@@ -52,6 +53,9 @@ const App = () => {
 
   const handleItemClick = (item) => {
     setSelectedContent(item);
+  };
+  const hundelSubSelected = (sub) => {
+    setSelectedSub(sub);
   };
   const hundleCounter = (newCount) => {
     setCount(newCount);
@@ -94,6 +98,7 @@ const App = () => {
           selectTab={hundelTabSummary}
           serviceSlected={hundleDataSelected}
           contentSelected={handleItemClick}
+          SubSelected={hundelSubSelected}
           counter={hundleCounter}
         />
       ),
@@ -120,8 +125,7 @@ const App = () => {
       content: <ContactStep onInputChange={handleInputChange} />,
     },
   ];
-  const isEmpty =
-    selectedContent == null || selectedData == null || selectedTab == "";
+  const isEmpty = selectedContent == null;
   // count == "";
 
   const EmptyContact =
@@ -201,6 +205,29 @@ const App = () => {
                       />
 
                       <SideBarCard
+                        cardImage={service}
+                        imageAlt=""
+                        title="Sub Service"
+                        condtion={selectedSub}
+                        cardContent={selectedSub}
+                        customWidth={false}
+                        customJusticfy="between"
+                        contentWidth
+                      />
+                      {selectedContent === "Deep Cleaning" &&
+                        selectedSub !== null && (
+                          <SideBarCard
+                            cardImage={frequency}
+                            imageAlt="frequency"
+                            title="frequency"
+                            condtion={selectedData}
+                            cardContent={selectedData}
+                            customWidth={false}
+                            customJusticfy="between"
+                            contentWidth
+                          />
+                        )}
+                      <SideBarCard
                         cardImage={hours}
                         imageAlt="hours"
                         title="Hours"
@@ -217,17 +244,6 @@ const App = () => {
                         title="Crew Workers"
                         condtion={selectedTab}
                         cardContent={`${selectedTab} Crew`}
-                        customWidth={false}
-                        customJusticfy="between"
-                        contentWidth
-                      />
-
-                      <SideBarCard
-                        cardImage={frequency}
-                        imageAlt="frequency"
-                        title="frequency"
-                        condtion={selectedData}
-                        cardContent={selectedData}
                         customWidth={false}
                         customJusticfy="between"
                         contentWidth
@@ -398,13 +414,13 @@ const App = () => {
             </div>
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-            <div className=" w-full pt-10" />
+              <div className=" w-full pt-10" />
               <CardTitle
-                      imageSrc={addressImage}
-                      imageAlt="address"
-                      titleCard="Address"
-                      customJusticfyTitle="center"
-                    />
+                imageSrc={addressImage}
+                imageAlt="address"
+                titleCard="Address"
+                customJusticfyTitle="center"
+              />
               <div className="border-b-2 border-solid border-[#286380] w-full" />
               <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
                 <div className="px-7">
@@ -421,15 +437,14 @@ const App = () => {
             </div>
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-
-             <div className=" w-full pt-10" />
+              <div className=" w-full pt-10" />
 
               <CardTitle
-                      imageSrc={dateTime}
-                      imageAlt="date-time"
-                      titleCard="Date and Time"
-                      customJusticfyTitle="center"
-                    />
+                imageSrc={dateTime}
+                imageAlt="date-time"
+                titleCard="Date and Time"
+                customJusticfyTitle="center"
+              />
               <div className="border-b-2 border-solid border-[#286380] w-full" />
               <div className="text-left flex flex-col lg:flex-row pt-4 md:pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
                 <div className="w-fit flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10 mb-10">
@@ -466,13 +481,13 @@ const App = () => {
             </div>
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-            <div className=" w-full pt-10" />
+              <div className=" w-full pt-10" />
               <CardTitle
-                      imageSrc={contacts}
-                      imageAlt="contact information"
-                      titleCard="Contact Information"
-                      customJusticfyTitle="center"
-                    />
+                imageSrc={contacts}
+                imageAlt="contact information"
+                titleCard="Contact Information"
+                customJusticfyTitle="center"
+              />
               <div className="border-b-2 border-solid border-[#286380] w-full" />
               <div className="text-left flex flex-col w-full items-start justify-around px-0 md:px-0 space-y-3 rounded-3xl ">
                 <SideBarCard

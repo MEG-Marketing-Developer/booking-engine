@@ -35,7 +35,7 @@ function SideBarCard({
               customWidth ? "w-fit" : "w-[200px]"
             }`}
           >
-            <h3 className="text-base font-alexandria font-[400] text-[#E4ECEF]">
+            <h3 className="text-sm font-alexandria font-[400] text-[#E4ECEF] text-center">
               {cardContent}
             </h3>
           </div>

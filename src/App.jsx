@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -9,6 +9,7 @@ import DateStep from "./DateStep";
 import ContactStep from "./ContactStep";
 import booking from "../public/images/booking-details.svg";
 import addressImage from "../public/images/address.svg";
+import expectedPrice from "../public/images/services/expected-prices.svg";
 import contacts from "../public/images/contacts.svg";
 import dateTime from "../public/images/date-time.svg";
 import dateImage from "../public/images/date.svg";
@@ -33,7 +34,8 @@ const { Step } = Steps;
 const App = () => {
   const [selectedTab, setSelectedTab] = useState("");
   const [selectedData, setSelectedData] = useState(null);
-  const [count, setCount] = useState("4");
+  const [servicesPrice, setServicesPrice] = useState(null);
+  const [count, setCount] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);
   const [selectedSub, setSelectedSub] = useState(null);
   const [current, setCurrent] = useState(0);
@@ -42,9 +44,13 @@ const App = () => {
   const [time, setTime] = useState(null);
   const [formData, setFormData] = useState({});
   const [isCompleted, setIsCompleted] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const hundleDataSelected = (newData) => {
     setSelectedData(newData);
+  };
+  const hundleServicePrice = (newPrice) => {
+    setServicesPrice(newPrice);
   };
 
   const hundelTabSummary = (newTab) => {
@@ -59,6 +65,9 @@ const App = () => {
   };
   const hundleCounter = (newCount) => {
     setCount(newCount);
+  };
+  const hundleCheckbox = () => {
+    setIsChecked(!isChecked);
   };
 
   const hundleAddress = (newAddress) => {
@@ -100,6 +109,8 @@ const App = () => {
           contentSelected={handleItemClick}
           SubSelected={hundelSubSelected}
           counter={hundleCounter}
+          checkboxChecked={hundleCheckbox}
+          servivesSelectedPrice={hundleServicePrice}
         />
       ),
     },
@@ -132,6 +143,33 @@ const App = () => {
     formData.fullName == null ||
     formData.email == null ||
     formData.phoneNumber == null;
+    console.log(servicesPrice, "price before", selectedTab);
+    // const initialValue = servicesPrice;
+  //   useEffect(() => {
+
+  //     let tabValue;
+
+  //     switch (selectedTab) {
+  //       case '1':
+  //         tabValue = 20;
+  //         break;
+  //       case '2':
+  //         tabValue = 30;
+  //         break;
+  //       case '3':
+  //         tabValue = 40;
+  //         break;
+  //       case '4':
+  //         tabValue = 50;
+  //         break;
+  //       default:
+  //         tabValue = 0;
+  //         break;
+  //     }
+  //     setServicesPrice( initialValue + tabValue);
+  // }, [selectedTab]);
+  //   console.log(servicesPrice, "price", selectedTab);
+  //   console.log(typeof selectedTab)
   return (
     <>
       <Header />
@@ -203,7 +241,6 @@ const App = () => {
                         customJusticfy="between"
                         contentWidth
                       />
-
                       <SideBarCard
                         cardImage={service}
                         imageAlt=""
@@ -214,6 +251,7 @@ const App = () => {
                         customJusticfy="between"
                         contentWidth
                       />
+                    
                       {selectedContent === "Deep Cleaning" &&
                         selectedSub !== null && (
                           <SideBarCard
@@ -227,30 +265,57 @@ const App = () => {
                             contentWidth
                           />
                         )}
-                      <SideBarCard
-                        cardImage={hours}
-                        imageAlt="hours"
-                        title="Hours"
-                        condtion={count}
-                        cardContent={`${count} hours`}
-                        customWidth={false}
-                        customJusticfy="between"
-                        contentWidth
-                      />
 
-                      <SideBarCard
-                        cardImage={crew}
-                        imageAlt="crew"
-                        title="Crew Workers"
-                        condtion={selectedTab}
-                        cardContent={`${selectedTab} Crew`}
-                        customWidth={false}
-                        customJusticfy="between"
-                        contentWidth
-                      />
+                      {selectedContent !== "Other" && !isChecked && (
+                        <SideBarCard
+                          cardImage={hours}
+                          imageAlt="hours"
+                          title="Hours"
+                          condtion={count}
+                          cardContent={`${count} hours`}
+                          customWidth={false}
+                          customJusticfy="between"
+                          contentWidth
+                        />
+                      )}
+                      {selectedContent !== "Other" && !isChecked && (
+                        <SideBarCard
+                          cardImage={crew}
+                          imageAlt="crew"
+                          title="Crew Workers"
+                          condtion={selectedTab}
+                          cardContent={`${selectedTab} Crew`}
+                          customWidth={false}
+                          customJusticfy="between"
+                          contentWidth
+                        />
+                      )}
                     </div>
                   </div>
-
+                  {selectedContent !== "Other" && (
+                  <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                    <CardTitle
+                      imageSrc={expectedPrice}
+                      imageAlt="expected price"
+                      titleCard="expected price"
+                      customJusticfyTitle="start"
+                    />
+                    <div className="border-b-2 border-solid border-[#286380] w-full" />
+                    
+                    <div className="flex flex-col px-7 py-2">
+                      <span className="text-[#1D506A] font-alexandria text-sm font-normal uppercase">
+                        approximately SERVICE price
+                      </span>
+                      <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
+                        {
+                        
+                        servicesPrice
+                        
+                        } AED
+                      </h2>
+                    </div>
+                  </div>
+                   )} 
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
                     <CardTitle
                       imageSrc={addressImage}

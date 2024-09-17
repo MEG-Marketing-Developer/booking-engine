@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import crew from "../../public/images/crew.svg";
 
-function TabsContent({ onTabChange }) {
+function TabsContent({ onTabChange, checkboxClasses }) {
   const handleTabChange = (value) => {
     onTabChange(value);
   };
@@ -27,6 +27,7 @@ function TabsContent({ onTabChange }) {
       >
         <TabsList className="grid md:block grid-cols-2 grid-rows-2 gap-4 w-full h-full p-4">
           <TabsTrigger
+          disabled={checkboxClasses}
             value="1"
             className={cn(
               "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
@@ -35,6 +36,7 @@ function TabsContent({ onTabChange }) {
             One
           </TabsTrigger>
           <TabsTrigger
+          disabled={checkboxClasses}
             value="2"
             className={cn(
               "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
@@ -43,6 +45,7 @@ function TabsContent({ onTabChange }) {
             Two
           </TabsTrigger>
           <TabsTrigger
+          disabled={checkboxClasses}
             value="3"
             className={cn(
               "bg-white font-normal text-lg text-[#286380]  p-2 data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"
@@ -51,6 +54,7 @@ function TabsContent({ onTabChange }) {
             Three
           </TabsTrigger>
           <TabsTrigger
+          disabled={checkboxClasses}
             value="4"
             className={cn(
               "bg-white font-normal text-lg text-[#286380]  p-2  data-[state=active]:text-white data-[state=active]:bg-[#286380] mr-2 md:mr-5 h-[70px] w-[70px] border border-[#113553] border-solid"

@@ -26,16 +26,16 @@ import homeFurunutueMover from "../../public/images/services/home-furunutue-move
 import applianceMover from "../../public/images/services/appliance-mover.svg";
 import other from "../../public/images/services/other.svg";
 
-function SelectServices({ onServicesSelected, onSubServicesSelected }) {
+function SelectServices({ onServicesSelected, onSubServicesSelected, onServicePrice }) {
   const [selectedServiceType, setSelectedServiceType] = useState(null);
   const [subServices, setSubServices] = useState([]);
   const [otherService, setOtherService] = useState("");
   const [activeIndex, setActiveIndex] = useState(null);
   const [activeSubIndex, setActiveSubIndex] = useState(null);
   const items = [
-    { id: 1, value: "Movers & Packers", icon: moversPackers },
-    { id: 2, value: "Deep Cleaning", icon: deepCleaning },
-    { id: 3, value: "Maintenance Work", icon: maintainanceWork },
+    { id: 1, value: "Movers & Packers", icon: moversPackers, price:250 },
+    { id: 2, value: "Deep Cleaning", icon: deepCleaning , price:450},
+    { id: 3, value: "Maintenance Work", icon: maintainanceWork , price:550},
     { id: 4, value: "Other", icon: others },
   ];
 
@@ -45,6 +45,7 @@ function SelectServices({ onServicesSelected, onSubServicesSelected }) {
     setActiveIndex(index);
     onServicesSelected(selectedService);
     setSelectedServiceType(selectedService);
+    onServicePrice(items[index].price)
 
     // Update subservices dynamically based on service type
     if (selectedService === "Movers & Packers") {

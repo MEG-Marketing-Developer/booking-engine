@@ -2,7 +2,13 @@ import React from "react";
 import "./ButtonSilder.css";
 import hours from "../../public/images/hours.svg";
 
-function Counter({ count, increment, decrement, inputChange }) {
+function Counter({
+  count,
+  increment,
+  decrement,
+  inputChange,
+  counterDisabled,
+}) {
   return (
     <>
       <div className="flex flex-col space-y-5 md:flex-row space-x-3 items-center justify-around pl-0 p-4 mt-0 bg-[#E1E7E9] py-7 my-10">
@@ -18,15 +24,21 @@ function Counter({ count, increment, decrement, inputChange }) {
         </div>
         <div className="flex justify-around">
           <button
-            className="px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-alexandria"
+            disabled={counterDisabled}
+            className={`px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-alexandria ${
+              counterDisabled ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             onClick={decrement}
           >
             -
           </button>
 
           <input
-            className="input-number text-2xl font-bold bg-white w-[40%] px-4 py-1 rounded"
+            className={`input-number text-2xl font-bold bg-white w-[40%] px-4 py-1 rounded ${
+              counterDisabled ? "opacity-50" : ""
+            }`}
             type="number"
+            disabled={counterDisabled}
             value={count}
             onChange={inputChange}
             min="4"
@@ -38,7 +50,10 @@ function Counter({ count, increment, decrement, inputChange }) {
             }}
           />
           <button
-            className="px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-alexandria"
+            disabled={counterDisabled}
+            className={`px-4 py-2 bg-[#286380] text-white rounded hover:bg-[#1D506A] text-xl font-bold font-alexandria ${
+              counterDisabled ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             onClick={increment}
           >
             +

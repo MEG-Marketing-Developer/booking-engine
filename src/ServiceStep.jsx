@@ -10,16 +10,20 @@ export const ServiceStep = ({
   contentSelected,
   serviceSlected,
   SubSelected,
+  checkboxChecked,
+  servivesSelectedPrice,
 }) => {
   const [selectedTab, setSelectedTab] = useState("1");
   const [selectedData, setSelectedData] = useState(null);
   const [selectedService, setSelectedServices] = useState(null);
   const [selectedSubServices, setSelectedSubServices] = useState(null);
+  const [servicePrice, setServicePrice] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(4);
- 
-  const handleCheckboxChange = () => {
+
+  const handleCheckboxChange = (e) => {
     setIsChecked(!isChecked);
+    checkboxChecked(e);
   };
 
   const hundleDataSelected = (newData) => {
@@ -35,6 +39,10 @@ export const ServiceStep = ({
   const hundleSubServicesSelected = (newSub) => {
     setSelectedSubServices(newSub);
     SubSelected(newSub);
+  };
+  const hundleServicePrice = (newPrice) => {
+    setServicePrice(newPrice);
+    servivesSelectedPrice(newPrice);
   };
 
   const handleTabChange = (newTab) => {
@@ -68,40 +76,46 @@ export const ServiceStep = ({
       counter(newCount);
     }
   };
-  console.log(selectedService)
+ 
 
   return (
     <>
       <SelectServices
         onServicesSelected={hundleServicesSelected}
         onSubServicesSelected={hundleSubServicesSelected}
+        onServicePrice={hundleServicePrice}
       />
-       {selectedService === "Deep Cleaning" && selectedSubServices !== null &&(
-      <ServicesSlider onDataSelected={hundleDataSelected} />
-    )}
-       {selectedService !== null  &&(
-      <TabsContent onTabChange={handleTabChange} />
-       )}
-         {selectedService !== null  &&(
-      <Counter
-        inputChange={handleCounter}
-        count={count}
-        increment={increment}
-        decrement={decrement}
-      />
-         )}
-          {selectedService !== null  &&(
-       <div>
-      <label>
-        <input
-          type="checkbox"
-          checked={isChecked}
-          onChange={handleCheckboxChange}
+      {selectedService === "Deep Cleaning" && selectedSubServices !== null && (
+        <ServicesSlider onDataSelected={hundleDataSelected} />
+      )}
+      {selectedService !== null && (
+        <TabsContent
+          onTabChange={handleTabChange}
+          checkboxClasses={isChecked}
         />
-       Let Expert Decide
-      </label>      
-    </div>
-    )}
+      )}
+      {selectedService !== null && (
+        <Counter
+          inputChange={handleCounter}
+          count={count}
+          increment={increment}
+          decrement={decrement}
+          counterDisabled={isChecked}
+        />
+      )}
+      {selectedService !== null && (
+        <div className="bg-[#CAEFDA] py-5">
+          <label className="text-[#0D6332] font-alexandria font-bold text-base">
+            <input
+              className="mr-1"
+              type="checkbox"
+              checked={isChecked}
+              onChange={handleCheckboxChange}
+            />
+            Let The Expert Decide
+          </label>
+        </div>
+      )}
     </>
   );
 };

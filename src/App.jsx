@@ -32,9 +32,13 @@ import CardTitle from "./components/CardTitle";
 const { Step } = Steps;
 
 const App = () => {
-  const [selectedTab, setSelectedTab] = useState("");
+  const [selectedTab, setSelectedTab] = useState({
+    value: "",
+    price: 0,
+  });
   const [selectedData, setSelectedData] = useState(null);
   const [servicesPrice, setServicesPrice] = useState(null);
+  const [countPrice, setCountPrice] = useState(null);
   const [count, setCount] = useState("");
   const [selectedContent, setSelectedContent] = useState(null);
   const [selectedSub, setSelectedSub] = useState(null);
@@ -52,6 +56,9 @@ const App = () => {
   const hundleServicePrice = (newPrice) => {
     setServicesPrice(newPrice);
   };
+  const hundleCounterPrice = (counterPrice) => {
+    setCountPrice(counterPrice);
+  };
 
   const hundelTabSummary = (newTab) => {
     setSelectedTab(newTab);
@@ -60,8 +67,8 @@ const App = () => {
   const handleItemClick = (item) => {
     setSelectedContent(item);
   };
-  const hundelSubSelected = (sub) => {
-    setSelectedSub(sub);
+  const hundelSubSelected = (sub) => {    
+    setSelectedSub(sub);   
   };
   const hundleCounter = (newCount) => {
     setCount(newCount);
@@ -111,6 +118,7 @@ const App = () => {
           counter={hundleCounter}
           checkboxChecked={hundleCheckbox}
           servivesSelectedPrice={hundleServicePrice}
+          totalCounterPrice={hundleCounterPrice}
         />
       ),
     },
@@ -143,34 +151,8 @@ const App = () => {
     formData.fullName == null ||
     formData.email == null ||
     formData.phoneNumber == null;
-    console.log(servicesPrice, "price before", selectedTab);
-    // const initialValue = servicesPrice;
-  //   useEffect(() => {
 
-  //     let tabValue;
-
-  //     switch (selectedTab) {
-  //       case '1':
-  //         tabValue = 20;
-  //         break;
-  //       case '2':
-  //         tabValue = 30;
-  //         break;
-  //       case '3':
-  //         tabValue = 40;
-  //         break;
-  //       case '4':
-  //         tabValue = 50;
-  //         break;
-  //       default:
-  //         tabValue = 0;
-  //         break;
-  //     }
-  //     setServicesPrice( initialValue + tabValue);
-  // }, [selectedTab]);
-  //   console.log(servicesPrice, "price", selectedTab);
-  //   console.log(typeof selectedTab)
-  return (
+    return (
     <>
       <Header />
 
@@ -283,8 +265,8 @@ const App = () => {
                           cardImage={crew}
                           imageAlt="crew"
                           title="Crew Workers"
-                          condtion={selectedTab}
-                          cardContent={`${selectedTab} Crew`}
+                          condtion={selectedTab.value}
+                          cardContent={`${selectedTab.value} Crew`}
                           customWidth={false}
                           customJusticfy="between"
                           contentWidth
@@ -307,11 +289,7 @@ const App = () => {
                         approximately SERVICE price
                       </span>
                       <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
-                        {
-                        
-                        servicesPrice
-                        
-                        } AED
+                      {!isChecked ? servicesPrice + selectedTab.price +countPrice : servicesPrice} AED
                       </h2>
                     </div>
                   </div>
@@ -458,8 +436,8 @@ const App = () => {
                   cardImage={crew}
                   imageAlt="crew"
                   title="Crew Workers"
-                  condtion={selectedTab}
-                  cardContent={`${selectedTab} Crew`}
+                  condtion={selectedTab.value}
+                  cardContent={`${selectedTab.value} Crew`}
                   customWidth={false}
                   customJusticfy="between"
                   contentWidth={false}

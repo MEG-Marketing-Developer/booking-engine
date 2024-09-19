@@ -4,8 +4,16 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import crew from "../../public/images/crew.svg";
 
 function TabsContent({ onTabChange, checkboxClasses }) {
+  const crewPriceMap = {
+    "1": 100,
+    "2": 200,
+    "3": 300,
+    "4": 400,
+  };
+
   const handleTabChange = (value) => {
-    onTabChange(value);
+    const price = crewPriceMap[value];
+    onTabChange({value, price});
   };
 
   return (

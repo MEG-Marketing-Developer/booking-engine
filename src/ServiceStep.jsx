@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ServicesSlider from "./components/ServicesSlider";
 import Counter from "./components/Counter";
 import TabsContent from "./components/TabsContent";
@@ -12,14 +12,19 @@ export const ServiceStep = ({
   SubSelected,
   checkboxChecked,
   servivesSelectedPrice,
+  totalCounterPrice,
 }) => {
-  const [selectedTab, setSelectedTab] = useState("1");
+  const [selectedTab, setSelectedTab] = useState({
+    value: "",
+    price: 0,
+  });
   const [selectedData, setSelectedData] = useState(null);
   const [selectedService, setSelectedServices] = useState(null);
   const [selectedSubServices, setSelectedSubServices] = useState(null);
   const [servicePrice, setServicePrice] = useState("");
   const [isChecked, setIsChecked] = useState(false);
   const [count, setCount] = useState(4);
+  const [counterPrice, setCounterPrice] = useState(null);
 
   const handleCheckboxChange = (e) => {
     setIsChecked(!isChecked);
@@ -66,6 +71,8 @@ export const ServiceStep = ({
       const newCount = count + 1;
       setCount(newCount);
       counter(newCount);
+      setCounterPrice(priceMap[newCount]); // Update price based on new count
+      totalCounterPrice(priceMap[newCount]);
     }
   };
 
@@ -74,10 +81,19 @@ export const ServiceStep = ({
       const newCount = count - 1;
       setCount(newCount);
       counter(newCount);
+      setCounterPrice(priceMap[newCount]); // Update price based on new count
+      totalCounterPrice(priceMap[newCount]);
     }
   };
- 
-
+  const priceMap = {
+    4: 100,
+    5: 125,
+    6: 150,
+    7: 175,
+    8: 200,
+    9: 225,
+    10: 250,
+  };
   return (
     <>
       <SelectServices

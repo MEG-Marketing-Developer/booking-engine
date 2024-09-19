@@ -103,7 +103,7 @@ const App = () => {
     message.success("Booking Completed!");
     setIsCompleted(true);
   };
-  const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
+  // const API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
 
   const libraries = ["places"];
   const steps = [
@@ -125,9 +125,9 @@ const App = () => {
     {
       title: "Address",
       content: (
-        <LoadScript googleMapsApiKey={API_KEY} libraries={libraries}>
-          <LocationStep apiKey={API_KEY} addressSelected={hundleAddress} />
-        </LoadScript>
+        // <LoadScript googleMapsApiKey={API_KEY} libraries={libraries}>
+          <LocationStep addressSelected={hundleAddress} />
+        // </LoadScript>
       ),
     },
     {

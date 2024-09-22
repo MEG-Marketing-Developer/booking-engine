@@ -18,6 +18,7 @@ import frequency from "../public/images/frequency.svg";
 import location from "../public/images/location.svg";
 import nameImage from "../public/images/name.svg";
 import phoneImage from "../public/images/phone.svg";
+import Connecting from "../public/images/Connecting.png";
 import service from "../public/images/service.svg";
 import timeImage from "../public/images/time.svg";
 import hours from "../public/images/hour-small.svg";
@@ -47,6 +48,7 @@ const App = () => {
   const [date, setDate] = useState(null);
   const [time, setTime] = useState(null);
   const [formData, setFormData] = useState({});
+  const [radioSelection, setRadioSelection] = useState(null);
   const [isCompleted, setIsCompleted] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
 
@@ -90,6 +92,9 @@ const App = () => {
   const handleInputChange = (formData) => {
     setFormData(formData);
   };
+  const hundleRadioChange = (radioSelection) => {
+    setRadioSelection(radioSelection);
+  }
 
   const next = () => {
     setCurrent(current + 1);
@@ -141,7 +146,7 @@ const App = () => {
     },
     {
       title: "Contact",
-      content: <ContactStep onInputChange={handleInputChange} />,
+      content: <ContactStep onInputChange={handleInputChange} radioSelection={hundleRadioChange} />,
     },
   ];
   const isEmpty = selectedContent == null;
@@ -386,6 +391,16 @@ const App = () => {
                         title="Phone"
                         condtion={formData.phoneNumber}
                         cardContent={formData.phoneNumber}
+                        customWidth
+                        customJusticfy="between"
+                        contentWidth
+                      />
+                      <SideBarCard
+                        cardImage={Connecting}
+                        imageAlt="Connecting"
+                        title="Support"
+                        condtion={radioSelection}
+                        cardContent={radioSelection}
                         customWidth
                         customJusticfy="between"
                         contentWidth

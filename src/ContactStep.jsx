@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
-function ContactStep({ onInputChange }) {
+function ContactStep({ onInputChange, radioSelection }) {
+  const [selectedOption, setSelectedOption] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -65,6 +66,11 @@ function ContactStep({ onInputChange }) {
     onInputChange(updatedFormData);
   };
 
+  const handleRadioChange = (event) => {
+    setSelectedOption(event.target.value);
+    radioSelection(event.target.value);
+  };
+
   return (
     <>
       <h1 className="text-base sm:text-3xl my-8 text-[#1D506A] font-bold text-center font-alexandria uppercase py-10">
@@ -117,6 +123,45 @@ function ContactStep({ onInputChange }) {
             value={formData.notes}
             onChange={handleChange}
           />
+        </div>
+        <div className=" border w-full md:w-[70%] mx-auto rounded-xl border-[#577186] border-solid bg-[#E4ECEF] p-10 space-y-10">
+          <div className="text-[#1D506A] font-bold text-center font-alexandria uppercase">
+            <h2>How Do you Want to Connect?</h2>
+          </div>
+          <div className="flex gap-4 w-full mx-auto justify-evenly ">
+            <label
+              className={`p-4 border rounded-lg cursor-pointer w-[200px] ${
+                selectedOption === "Whats App"
+                  ? "bg-[#eafff5] text-[#1d506a]"
+                  : "bg-white"
+              }`}
+            >
+              <input
+                type="radio"
+                value="Whats App"
+                checked={selectedOption === "Whats App"}
+                onChange={handleRadioChange}
+                className="hidden"
+              />
+              Whats App
+            </label>
+            <label
+              className={`p-4 border rounded-lg cursor-pointer w-[200px] ${
+                selectedOption === "Email"
+                  ? "bg-[#eafff5] text-[#1d506a]"
+                  : "bg-white"
+              }`}
+            >
+              <input
+                type="radio"
+                value="Email"
+                checked={selectedOption === "Email"}
+                onChange={handleRadioChange}
+                className="hidden"
+              />
+              Email
+            </label>
+          </div>
         </div>
       </form>
     </>

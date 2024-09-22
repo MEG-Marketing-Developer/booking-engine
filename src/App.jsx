@@ -69,8 +69,8 @@ const App = () => {
   const handleItemClick = (item) => {
     setSelectedContent(item);
   };
-  const hundelSubSelected = (sub) => {    
-    setSelectedSub(sub);   
+  const hundelSubSelected = (sub) => {
+    setSelectedSub(sub);
   };
   const hundleCounter = (newCount) => {
     setCount(newCount);
@@ -94,7 +94,7 @@ const App = () => {
   };
   const hundleRadioChange = (radioSelection) => {
     setRadioSelection(radioSelection);
-  }
+  };
 
   const next = () => {
     setCurrent(current + 1);
@@ -131,7 +131,7 @@ const App = () => {
       title: "Address",
       content: (
         // <LoadScript googleMapsApiKey={API_KEY} libraries={libraries}>
-          <LocationStep addressSelected={hundleAddress} />
+        <LocationStep addressSelected={hundleAddress} />
         // </LoadScript>
       ),
     },
@@ -146,7 +146,12 @@ const App = () => {
     },
     {
       title: "Contact",
-      content: <ContactStep onInputChange={handleInputChange} radioSelection={hundleRadioChange} />,
+      content: (
+        <ContactStep
+          onInputChange={handleInputChange}
+          radioSelection={hundleRadioChange}
+        />
+      ),
     },
   ];
   const isEmpty = selectedContent == null;
@@ -157,7 +162,7 @@ const App = () => {
     formData.email == null ||
     formData.phoneNumber == null;
 
-    return (
+  return (
     <>
       <Header />
 
@@ -238,7 +243,7 @@ const App = () => {
                         customJusticfy="between"
                         contentWidth
                       />
-                    
+
                       {selectedContent === "Deep Cleaning" &&
                         selectedSub !== null && (
                           <SideBarCard
@@ -280,25 +285,28 @@ const App = () => {
                     </div>
                   </div>
                   {selectedContent !== "Other" && (
-                  <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-                    <CardTitle
-                      imageSrc={expectedPrice}
-                      imageAlt="expected price"
-                      titleCard="expected price"
-                      customJusticfyTitle="start"
-                    />
-                    <div className="border-b-2 border-solid border-[#286380] w-full" />
-                    
-                    <div className="flex flex-col px-7 py-2">
-                      <span className="text-[#1D506A] font-alexandria text-sm font-normal uppercase">
-                        approximately SERVICE price
-                      </span>
-                      <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
-                      {!isChecked ? servicesPrice + selectedTab.price +countPrice : servicesPrice} AED
-                      </h2>
+                    <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                      <CardTitle
+                        imageSrc={expectedPrice}
+                        imageAlt="expected price"
+                        titleCard="expected price"
+                        customJusticfyTitle="start"
+                      />
+                      <div className="border-b-2 border-solid border-[#286380] w-full" />
+
+                      <div className="flex flex-col px-7 py-2">
+                        <span className="text-[#1D506A] font-alexandria text-sm font-normal uppercase">
+                          approximately SERVICE price
+                        </span>
+                        <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
+                          {!isChecked
+                            ? servicesPrice + selectedTab.price + countPrice
+                            : servicesPrice}{" "}
+                          AED
+                        </h2>
+                      </div>
                     </div>
-                  </div>
-                   )} 
+                  )}
                   <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
                     <CardTitle
                       imageSrc={addressImage}
@@ -435,41 +443,84 @@ const App = () => {
                   customJusticfy="between"
                   contentWidth={false}
                 />
-
                 <SideBarCard
-                  cardImage={hours}
-                  imageAlt="hours"
-                  title="Hours"
-                  condtion={count}
-                  cardContent={`${count} hours`}
+                  cardImage={service}
+                  imageAlt=""
+                  title="Sub Service"
+                  condtion={selectedSub}
+                  cardContent={selectedSub}
                   customWidth={false}
                   customJusticfy="between"
                   contentWidth={false}
                 />
 
-                <SideBarCard
-                  cardImage={crew}
-                  imageAlt="crew"
-                  title="Crew Workers"
-                  condtion={selectedTab.value}
-                  cardContent={`${selectedTab.value} Crew`}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
+                {selectedContent === "Deep Cleaning" &&
+                  selectedSub !== null && (
+                    <SideBarCard
+                      cardImage={frequency}
+                      imageAlt="frequency"
+                      title="frequency"
+                      condtion={selectedData}
+                      cardContent={selectedData}
+                      customWidth={false}
+                      customJusticfy="between"
+                      contentWidth={false}
+                    />
+                  )}
 
-                <SideBarCard
-                  cardImage={frequency}
-                  imageAlt="frequency"
-                  title="frequency"
-                  condtion={selectedData}
-                  cardContent={selectedData}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
+                {selectedContent !== "Other" && !isChecked && (
+                  <SideBarCard
+                    cardImage={hours}
+                    imageAlt="hours"
+                    title="Hours"
+                    condtion={count}
+                    cardContent={`${count} hours`}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                  />
+                )}
+                {selectedContent !== "Other" && !isChecked && (
+                  <SideBarCard
+                    cardImage={crew}
+                    imageAlt="crew"
+                    title="Crew Workers"
+                    condtion={selectedTab.value}
+                    cardContent={`${selectedTab.value} Crew`}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                  />
+                )}
               </div>
             </div>
+          
+            {selectedContent !== "Other" && (
+            <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+              <div className=" w-full pt-10" />
+
+              <CardTitle
+                imageSrc={expectedPrice}
+                imageAlt="expected price"
+                titleCard="expected price"
+                customJusticfyTitle="center"
+              />
+              <div className="border-b-2 border-solid border-[#286380] w-full" />
+              <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
+                <div className="flex flex-col px-7 py-2 items-center">
+                  <span className="text-[#1D506A] font-alexandria text-sm font-normal uppercase">
+                    approximately SERVICE price
+                  </span>
+                  <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
+                    {!isChecked
+                      ? servicesPrice + selectedTab.price + countPrice
+                      : servicesPrice}{" "}
+                    AED
+                  </h2>
+                </div>
+              </div>
+            </div>
+            )}
 
             <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
               <div className=" w-full pt-10" />
@@ -576,6 +627,16 @@ const App = () => {
                   title="phone"
                   condtion={formData.phoneNumber}
                   cardContent={formData.phoneNumber}
+                  customWidth={false}
+                  customJusticfy="between"
+                  contentWidth={false}
+                />
+                <SideBarCard
+                  cardImage={Connecting}
+                  imageAlt="connecting"
+                  title="Support"
+                  condtion={radioSelection}
+                  cardContent={radioSelection}
                   customWidth={false}
                   customJusticfy="between"
                   contentWidth={false}

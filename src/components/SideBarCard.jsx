@@ -8,11 +8,13 @@ function SideBarCard({
   cardContent,
   customWidth,
   customJusticfy,
-  contentWidth
+  contentWidth,
+  bgColor,
+  cardBackground,
 }) {
   return (
     <div
-      className='w-full  bg-[#D0E3EB] py-2 space-y-3'
+      className={`w-full   py-2 space-y-3 ${bgColor}`}
     >
       <div
         className={`${contentWidth ? "w-full" : "w-[50%]"} mx-auto flex items-center space-x-3  flex-col md:flex-row  ${
@@ -31,11 +33,16 @@ function SideBarCard({
         </div>
         {condtion && (
           <div
-            className={`px-8 py-1 md:!mr-7 rounded-lg flex justify-center items-center bg-[#205164] border border-[#707070] shadow-md ${
+            className={`px-8 py-1 md:!mr-7 rounded-lg flex justify-center items-center  border border-[#707070] shadow-md 
+              ${
               customWidth ? "w-fit" : "w-[200px]"
-            }`}
+            }
+             ${
+              cardBackground  ? "bg-[#C8EAF8]" : "bg-[#E5E5E5]"
+            }
+            `}
           >
-            <h3 className="text-sm font-alexandria font-[400] text-[#E4ECEF] text-center">
+            <h3 className="text-sm font-alexandria font-[400] text-[#1D506A] text-center">
               {cardContent}
             </h3>
           </div>

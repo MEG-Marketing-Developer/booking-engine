@@ -23,8 +23,9 @@ import service from "../public/images/service.svg";
 import timeImage from "../public/images/time.svg";
 import hours from "../public/images/hour-small.svg";
 import crew from "../public/images/crew-small.svg";
-import fireworks from "../public/images/fireworks.svg";
-
+import confirmation from "../public/images/confirmation.svg";
+import whiteEmail from "../public/images/white-email.svg";
+import whiteWhats from "../public/images/white-whats.svg";
 import dayjs from "dayjs";
 import { Steps, Button, message } from "antd";
 import SideBarCard from "./components/SideBarCard";
@@ -232,6 +233,8 @@ const App = () => {
                         customWidth={false}
                         customJusticfy="between"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
                       <SideBarCard
                         cardImage={service}
@@ -242,6 +245,8 @@ const App = () => {
                         customWidth={false}
                         customJusticfy="between"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
 
                       {selectedContent === "Deep Cleaning" &&
@@ -255,6 +260,8 @@ const App = () => {
                             customWidth={false}
                             customJusticfy="between"
                             contentWidth
+                            bgColor="bg-[#D0E3EB]"
+                            cardBackground
                           />
                         )}
 
@@ -268,6 +275,8 @@ const App = () => {
                           customWidth={false}
                           customJusticfy="between"
                           contentWidth
+                          bgColor="bg-[#D0E3EB]"
+                          cardBackground
                         />
                       )}
                       {selectedContent !== "Other" && !isChecked && (
@@ -280,6 +289,8 @@ const App = () => {
                           customWidth={false}
                           customJusticfy="between"
                           contentWidth
+                          bgColor="bg-[#D0E3EB]"
+                          cardBackground
                         />
                       )}
                     </div>
@@ -347,6 +358,8 @@ const App = () => {
                         customWidth
                         customJusticfy="start"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
 
                       <SideBarCard
@@ -358,6 +371,8 @@ const App = () => {
                         customWidth
                         customJusticfy="start"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
                     </div>
                   </div>
@@ -380,6 +395,8 @@ const App = () => {
                         customWidth
                         customJusticfy="between"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
 
                       <SideBarCard
@@ -391,6 +408,8 @@ const App = () => {
                         customWidth
                         customJusticfy="between"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
 
                       <SideBarCard
@@ -402,6 +421,8 @@ const App = () => {
                         customWidth
                         customJusticfy="between"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
                       <SideBarCard
                         cardImage={Connecting}
@@ -412,6 +433,8 @@ const App = () => {
                         customWidth
                         customJusticfy="between"
                         contentWidth
+                        bgColor="bg-[#D0E3EB]"
+                        cardBackground
                       />
                     </div>
                   </div>
@@ -423,232 +446,277 @@ const App = () => {
           <div className="final-component bg-white w-[90%] sm:w-[85%] mx-auto mt-10 rounded-3xl h-auto px-3 py-7 sm:p-10 md:pt-0 md:pr-0 md:pb-0 sm:pl-0 flex flex-col items-center">
             <div className="pt-16 pb-6">
               <img
-                src={fireworks}
-                alt="fireworks"
-                className="w-16 h-16 object-contain transition-transform"
+                src={confirmation}
+                alt="confirmation"
+                className="w-28 h-28 object-contain transition-transform"
               />
             </div>
             <h3 className="text-lg sm:text-3xl font-alexandria font-bold text-[#123553]">
-              CONGRATIOLATIONS
+              YOUR REQUEST HAS BEEN CONFIRMED SUCCESSFULLY
             </h3>
-            <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-10 rounded-3xl ">
-              <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
-                <SideBarCard
-                  cardImage={service}
-                  imageAlt="service"
-                  title="Service"
-                  condtion={selectedContent}
-                  cardContent={selectedContent}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
-                <SideBarCard
-                  cardImage={service}
-                  imageAlt=""
-                  title="Sub Service"
-                  condtion={selectedSub}
-                  cardContent={selectedSub}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
+            <h3 className="text-lg sm:text-3xl font-alexandria font-normal text-[#123553]">
+              The team will contact you as soon as possible.
+            </h3>
+            <h3 className="text-lg sm:text-3xl font-alexandria font-bold text-[#123553] mt-16">
+              FOR QUICK CONTACT
+            </h3>
+            <div className="py-10 flex flex-col md:flex-row w-full justify-center space-x-9 items-center">
+              <a href="https://mammutfm.ch/contact-us/">
+                <button className="bg-[#336985] py-4 px-4 font-alexandria font-normal text-2xl rounded-3xl text-white border border-solid border-[#707070] shadow-lg w-full flex justify-start">
+                  <img
+                    src={whiteEmail}
+                    alt="white Email"
+                    className="w-8 h-8 object-contain transition-transform"
+                  />
+                  <span className="px-3 uppercase"> CONTACT US</span>
+                </button>
+              </a>
+              <h3 className="text-lg sm:text-3xl font-alexandria font-normal text-[#336985]">
+                OR
+              </h3>
+              <a href="https://mammutfm.ch/contact-us/">
+                <button className="bg-[#659F57] py-4 px-4 font-alexandria font-normal text-2xl rounded-3xl text-white border border-solid border-[#707070] shadow-lg w-full flex justify-start">
+                  <img
+                    src={whiteWhats}
+                    alt="white Whats"
+                    className="w-8 h-8 object-contain transition-transform"
+                  />
+                  <span className="px-3 uppercase"> WhatsApp</span>
+                </button>
+              </a>
+            </div>
+            <div className="border border-[#707070] border-solid rounded-md w-[75%]  mb-10">
+              <div className="flex flex-row rounded-t-md space-x-3 px-7 py-3 w-full bg-[#ECECEC] items-center justify-start border-b border-b-[#707070]">
+                <h1 className="font-alexandria text-base sm:text-xl text-left text-[#1D506A] font-normal uppercase">
+                  Request Details
+                </h1>
+              </div>
 
-                {selectedContent === "Deep Cleaning" &&
-                  selectedSub !== null && (
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 pt-3  rounded-3xl ">
+                <div className="text-left rounded-lg space-y-3 pt-0 flex flex-col w-full items-start justify-around">
+                  <SideBarCard
+                    cardImage={service}
+                    imageAlt="service"
+                    title="Service"
+                    condtion={selectedContent}
+                    cardContent={selectedContent}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                    bgColor="bg-[#F2F2F2]"
+                    cardBackground={false}
+                  />
+                  <SideBarCard
+                    cardImage={service}
+                    imageAlt=""
+                    title="Sub Service"
+                    condtion={selectedSub}
+                    cardContent={selectedSub}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                    bgColor="bg-[#F2F2F2]"
+                    cardBackground={false}
+                  />
+
+                  {selectedContent === "Deep Cleaning" &&
+                    selectedSub !== null && (
+                      <SideBarCard
+                        cardImage={frequency}
+                        imageAlt="frequency"
+                        title="frequency"
+                        condtion={selectedData}
+                        cardContent={selectedData}
+                        customWidth={false}
+                        customJusticfy="between"
+                        contentWidth={false}
+                        bgColor="bg-[#F2F2F2]"
+                        cardBackground={false}
+                      />
+                    )}
+
+                  {selectedContent !== "Other" && !isChecked && (
                     <SideBarCard
-                      cardImage={frequency}
-                      imageAlt="frequency"
-                      title="frequency"
-                      condtion={selectedData}
-                      cardContent={selectedData}
+                      cardImage={hours}
+                      imageAlt="hours"
+                      title="Hours"
+                      condtion={count}
+                      cardContent={`${count} hours`}
                       customWidth={false}
                       customJusticfy="between"
                       contentWidth={false}
+                      bgColor="bg-[#F2F2F2]"
+                      cardBackground={false}
                     />
                   )}
-
-                {selectedContent !== "Other" && !isChecked && (
-                  <SideBarCard
-                    cardImage={hours}
-                    imageAlt="hours"
-                    title="Hours"
-                    condtion={count}
-                    cardContent={`${count} hours`}
-                    customWidth={false}
-                    customJusticfy="between"
-                    contentWidth={false}
-                  />
-                )}
-                {selectedContent !== "Other" && !isChecked && (
-                  <SideBarCard
-                    cardImage={crew}
-                    imageAlt="crew"
-                    title="Crew Workers"
-                    condtion={selectedTab.value}
-                    cardContent={`${selectedTab.value} Crew`}
-                    customWidth={false}
-                    customJusticfy="between"
-                    contentWidth={false}
-                  />
-                )}
-              </div>
-            </div>
-          
-            {selectedContent !== "Other" && (
-            <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className=" w-full pt-10" />
-
-              <CardTitle
-                imageSrc={expectedPrice}
-                imageAlt="expected price"
-                titleCard="expected price"
-                customJusticfyTitle="center"
-              />
-              <div className="border-b-2 border-solid border-[#286380] w-full" />
-              <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                <div className="flex flex-col px-7 py-2 items-center">
-                  <span className="text-[#1D506A] font-alexandria text-sm font-normal uppercase">
-                    approximately SERVICE price
-                  </span>
-                  <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
-                    {!isChecked
-                      ? servicesPrice + selectedTab.price + countPrice
-                      : servicesPrice}{" "}
-                    AED
-                  </h2>
+                  {selectedContent !== "Other" && !isChecked && (
+                    <SideBarCard
+                      cardImage={crew}
+                      imageAlt="crew"
+                      title="Crew Workers"
+                      condtion={selectedTab.value}
+                      cardContent={`${selectedTab.value} Crew`}
+                      customWidth={false}
+                      customJusticfy="between"
+                      contentWidth={false}
+                      bgColor="bg-[#F2F2F2]"
+                      cardBackground={false}
+                    />
+                  )}
                 </div>
               </div>
-            </div>
-            )}
 
-            <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className=" w-full pt-10" />
-              <CardTitle
-                imageSrc={addressImage}
-                imageAlt="address"
-                titleCard="Address"
-                customJusticfyTitle="center"
-              />
-              <div className="border-b-2 border-solid border-[#286380] w-full" />
-              <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#D0E3EB] py-7">
-                <div className="px-7">
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                <div className=" w-full pt-10" />
+
+                <div className="flex flex-row space-x-3 px-7 py-3 w-full  items-center justify-center">
                   <img
-                    src={location}
-                    alt="location"
-                    className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
+                    src={dateTime}
+                    alt="date-time"
+                    className="service-icon w-8 h-auto transition-transform "
                   />
+                  <h1 className="font-alexandria text-base sm:text-3xl text-left text-[#1D506A] font-normal uppercase">
+                    Date and Time
+                  </h1>
                 </div>
-                <div className="text-base sm:text-xl text-left text-[#123553]">
-                  <h3>{address}</h3>
+
+                {/* <div className="border-b-2 border-solid border-[#286380] w-full" /> */}
+                <div className="text-left flex flex-col lg:flex-row pt-4 md:pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
+                  <div className="w-fit flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#E5E5E5] py-7 rounded-2xl px-10 mb-10">
+                    <div className="px-7">
+                      <img
+                        src={dateImage}
+                        alt="dateImage"
+                        className="service-icon w-[30px] h-[50px]  object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+                    <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
+                      <h3 className="text-base sm:text-xl  text-[#123553]">
+                        {dayjs(date).format("MMM D YYYY")}
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="md:w-fit w-full flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#E5E5E5] py-7 rounded-2xl px-10">
+                    <div className="px-7 mb-7 md:mb-0">
+                      <img
+                        src={timeImage}
+                        alt="timeImage"
+                        className="service-icon w-auto md:w-[50px] h-[30px] object-contain rounded-full  transition-transform"
+                      />
+                    </div>
+
+                    <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-full">
+                      <h3 className="text-base sm:text-xl  text-[#123553]">
+                        {dayjs(time).format("hh:mm A")}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className=" w-full pt-10" />
-
-              <CardTitle
-                imageSrc={dateTime}
-                imageAlt="date-time"
-                titleCard="Date and Time"
-                customJusticfyTitle="center"
-              />
-              <div className="border-b-2 border-solid border-[#286380] w-full" />
-              <div className="text-left flex flex-col lg:flex-row pt-4 md:pt-10 w-full items-start justify-around px-6 md:px-0 rounded-3xl ">
-                <div className="w-fit flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10 mb-10">
+              <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                <div className=" w-full pt-10" />
+                <div className="flex flex-row space-x-3 px-7 py-3 pb-16 w-full  items-center justify-center">
+                  <img
+                    src={contacts}
+                    alt="Contact Information"
+                    className="service-icon w-8 h-auto transition-transform "
+                  />
+                  <h1 className="font-alexandria text-base sm:text-3xl text-left text-[#1D506A] font-normal uppercase">
+                    Contact Information
+                  </h1>
+                </div>
+                <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#F2F2F2] py-7">
                   <div className="px-7">
                     <img
-                      src={dateImage}
-                      alt="dateImage"
-                      className="service-icon w-[30px] h-[50px]  object-contain rounded-full  transition-transform"
+                      src={location}
+                      alt="location"
+                      className="service-icon w-[20px] h-[33px] object-contain rounded-full  transition-transform"
                     />
                   </div>
-                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-fit">
-                    <h3 className="text-base sm:text-xl  text-[#123553]">
-                      {dayjs(date).format("MMM D YYYY")}
-                    </h3>
+                  <div className="text-base sm:text-xl text-left text-[#123553]">
+                    <h3>{address}</h3>
                   </div>
                 </div>
+                {/* <div className="border-b-2 border-solid border-[#286380] w-full" /> */}
+                <div className="text-left flex flex-col w-full items-start justify-around px-0 md:px-0 space-y-3 rounded-3xl mt-5 ">
+                  <SideBarCard
+                    cardImage={nameImage}
+                    imageAlt="nameImage"
+                    title="Name"
+                    condtion={formData.fullName}
+                    cardContent={formData.fullName}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                    bgColor="bg-[#F2F2F2]"
+                    cardBackground
+                  />
 
-                <div className="md:w-fit w-full flex flex-col md:flex-row justify-start items-center space-x-3 bg-[#D0E3EB] py-7 rounded-2xl px-10">
-                  <div className="px-7 mb-7 md:mb-0">
-                    <img
-                      src={timeImage}
-                      alt="timeImage"
-                      className="service-icon w-auto md:w-[50px] h-[30px] object-contain rounded-full  transition-transform"
-                    />
-                  </div>
+                  <SideBarCard
+                    cardImage={emailImage}
+                    imageAlt="emailImage"
+                    title="Email"
+                    condtion={formData.email}
+                    cardContent={formData.email}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                    bgColor="bg-[#F2F2F2]"
+                    cardBackground
+                  />
 
-                  <div className="px-7 py-3 !mr-7 rounded-lg flex justify-center items-center bg-[#C8EAF8] border border-[#707070] shadow-md w-full">
-                    <h3 className="text-base sm:text-xl  text-[#123553]">
-                      {dayjs(time).format("hh:mm A")}
-                    </h3>
-                  </div>
+                  <SideBarCard
+                    cardImage={phoneImage}
+                    imageAlt="phoneImage"
+                    title="phone"
+                    condtion={formData.phoneNumber}
+                    cardContent={formData.phoneNumber}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                    bgColor="bg-[#F2F2F2]"
+                    cardBackground
+                  />
+                  <SideBarCard
+                    cardImage={Connecting}
+                    imageAlt="connecting"
+                    title="Support"
+                    condtion={radioSelection}
+                    cardContent={radioSelection}
+                    customWidth={false}
+                    customJusticfy="between"
+                    contentWidth={false}
+                    bgColor="bg-[#F2F2F2]"
+                    cardBackground
+                  />
                 </div>
               </div>
-            </div>
 
-            <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
-              <div className=" w-full pt-10" />
-              <CardTitle
-                imageSrc={contacts}
-                imageAlt="contact information"
-                titleCard="Contact Information"
-                customJusticfyTitle="center"
-              />
-              <div className="border-b-2 border-solid border-[#286380] w-full" />
-              <div className="text-left flex flex-col w-full items-start justify-around px-0 md:px-0 space-y-3 rounded-3xl ">
-                <SideBarCard
-                  cardImage={nameImage}
-                  imageAlt="nameImage"
-                  title="Name"
-                  condtion={formData.fullName}
-                  cardContent={formData.fullName}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
+              {selectedContent !== "Other" && (
+                <div className="text-left flex flex-col w-full items-start justify-around px-6 md:px-0 py-0 rounded-3xl  ">
+                  <div className=" w-full pt-10" />
 
-                <SideBarCard
-                  cardImage={emailImage}
-                  imageAlt="emailImage"
-                  title="Email"
-                  condtion={formData.email}
-                  cardContent={formData.email}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
+                  <div className="flex flex-row space-x-3 px-7 py-3 pb-5 w-full  items-center justify-center">
+                    <h1 className="font-alexandria text-base sm:text-3xl text-left text-[#1D506A] font-normal uppercase">
+                      EXPETED QOUTE
+                    </h1>
+                  </div>
 
-                <SideBarCard
-                  cardImage={phoneImage}
-                  imageAlt="phoneImage"
-                  title="phone"
-                  condtion={formData.phoneNumber}
-                  cardContent={formData.phoneNumber}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
-                <SideBarCard
-                  cardImage={Connecting}
-                  imageAlt="connecting"
-                  title="Support"
-                  condtion={radioSelection}
-                  cardContent={radioSelection}
-                  customWidth={false}
-                  customJusticfy="between"
-                  contentWidth={false}
-                />
-              </div>
-            </div>
-            <div className="py-10">
-              <a href="https://mammutfm.ch/contact-us/">
-                <button className="bg-[#336985] py-7 px-16 font-alexandria font-normal text-2xl rounded-xl text-white border border-solid border-[#707070] shadow-lg w-full">
-                  CONTACT US NOW
-                </button>
-              </a>
+                  {/* <div className="border-b-2 border-solid border-[#286380] w-full" /> */}
+                  <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#F2F2F2] py-7 rounded-lg">
+                    <div className="flex flex-col px-7 py-2 items-center">
+                      <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
+                        {!isChecked
+                          ? servicesPrice + selectedTab.price + countPrice
+                          : servicesPrice}{" "}
+                        AED
+                      </h2>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         )}

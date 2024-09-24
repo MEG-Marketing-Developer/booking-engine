@@ -705,7 +705,7 @@ const App = () => {
                   </div>
 
                   {/* <div className="border-b-2 border-solid border-[#286380] w-full" /> */}
-                  <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#F2F2F2] py-7 rounded-lg">
+                  <div className="w-full flex justify-center items-center pt-5 space-x-3 bg-[#F2F2F2] py-7 rounded-b-lg">
                     <div className="flex flex-col px-7 py-2 items-center">
                       <h2 className="text-[#245172] font-alexandria text-4xl font-medium">
                         {!isChecked

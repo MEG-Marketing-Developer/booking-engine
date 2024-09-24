@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import Spinner from "./components/Spinner";
 import locationImage from "../public/images/location.svg";
 import "./App.css";
+import 'leaflet/dist/leaflet.css';
 
 const mapContainerStyle = {
   width: "100%",

@@ -14,7 +14,7 @@ const mapContainerStyle = {
 };
 
 // Define the allowed country code (ISO 3166-1 alpha-2 code for Egypt is "EG")
-const ALLOWED_COUNTRY_CODE = "EG";
+const ALLOWED_COUNTRY_CODE = "AU";
 
 export const LocationStep = ({ addressSelected }) => {
   const [location, setLocation] = useState({ latitude: null, longitude: null });
@@ -53,7 +53,7 @@ export const LocationStep = ({ addressSelected }) => {
 
           // Validate if the country is allowed
           if (country_code !== ALLOWED_COUNTRY_CODE) {
-            setError(`Only locations in Egypt are accepted.`);
+            setError(`Only locations in Australia are accepted.`);
             setAddress("");
             addressSelected("");
           } else {
